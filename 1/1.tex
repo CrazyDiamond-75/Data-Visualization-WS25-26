@@ -1,4 +1,8 @@
 \input{../preambula}
+\usetikzlibrary{mindmap}
+\makeatletter
+\tikzset{concept/.style={circle,draw=\tikz@concept@color,every concept}}
+\makeatother
 
 \renewcommand{\ex}{1}
 
@@ -6,7 +10,16 @@
     \maketitle
 
     \begin{exercise}[Data Types]
-        \textbf{Bold Text}
+        \hfill
+        \begin{center}
+        \tikz[mindmap,concept]
+            \node[concept]{Data Type}
+                child[grow=right] {node[concept] {Textual}}
+                child[grow=left] {node[concept] {Ordinal}}
+                child[grow=down] {node[concept] {Nominal}}
+                child[grow=up] {node[concept] {Interval}}
+                ;
+        \end{center}
     \end{exercise}
 
     \begin{exercise}[Why Visualize -- Datasaurus]
