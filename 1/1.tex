@@ -12,12 +12,19 @@
     \begin{exercise}[Data Types]
         \hfill
         \begin{center}
-        \tikz[mindmap,concept]
-            \node[concept]{Data Type}
-                child[grow=right] {node[concept] {Textual}}
-                child[grow=left] {node[concept] {Ordinal}}
-                child[grow=down] {node[concept] {Nominal}}
-                child[grow=up] {node[concept] {Interval}}
+        \tikz[mindmap, concept]
+            \node[concept]{Data Types}
+                child[grow=right] {node[concept] {Quantitative}
+                    child[grow=right] {node[concept] {Textual}}
+                    child {node[concept] {Ordinal}}
+                    child {node[concept] {Nominal}}
+                    }
+                child[grow=left] {node[concept] {Qualitative}
+                    child {node[concept] {Interval}}
+                    child {node[concept] {Ratio}}
+                    }
+                % TODO: Find a place for you
+                %child {node[concept] {Temporal}}
                 ;
         \end{center}
     \end{exercise}
