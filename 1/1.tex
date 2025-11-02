@@ -3,6 +3,7 @@
 \makeatletter
 \tikzset{concept/.style={circle,draw=\tikz@concept@color,every concept}}
 \makeatother
+\tikzset{anno/.style={draw, font=\small, rectangle, minimum height=3em, text width=5cm}}
 
 \renewcommand{\ex}{1}
 
@@ -12,20 +13,21 @@
     \begin{exercise}[Data Types]
         \hfill
         \begin{center}
-        \tikz[mindmap, concept]
-            \node[concept]{Data Types}
-                child[grow=right] {node[concept] {Quantitative}
-                    child[grow=right] {node[concept] {Textual}}
-                    child {node[concept] {Ordinal}}
-                    child {node[concept] {Nominal}}
-                    }
-                child[grow=left] {node[concept] {Qualitative}
-                    child {node[concept] {Interval}}
-                    child {node[concept] {Ratio}}
-                    }
-                % TODO: Find a place for you
-                %child {node[concept] {Temporal}}
+            \tikz[mindmap, concept]{
+                \node[concept] (data types) {Data Types}
+                    child[grow=right] {node[concept] {Qualitative}
+                        child[grow=0] {node[concept] {Textual}}
+                        child[grow=45] {node[concept] {Ordinal}}
+                        child[grow=-45] {node[concept] {Nominal}}
+                        }
+                    child[grow=left] {node[concept] {Quantitative}
+                        child[grow=210] {node[concept] {Interval}}
+                        child[grow=150] {node[concept] {Ratio}}
+                        }
                 ;
+                \node[above=of data types, anno] (a0) {Can be temporal, spacial, or spaciotemporal.};
+                \draw (a0) -- (data types);
+            }
         \end{center}
     \end{exercise}
 
