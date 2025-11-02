@@ -27,4 +27,7 @@
 
 # Ignore them by default but add rules for each individual submission.
 *.pdf
+
+# 1
+DatasaurusDozen.tsv
 #!1/1.pdf
