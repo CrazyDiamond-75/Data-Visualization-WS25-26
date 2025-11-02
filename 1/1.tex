@@ -3,7 +3,7 @@
 \makeatletter
 \tikzset{concept/.style={circle,draw=\tikz@concept@color,every concept}}
 \makeatother
-\tikzset{anno/.style={draw, font=\small, rectangle, minimum height=3em, text width=5cm}}
+\tikzset{anno/.style={draw, font=\small, rectangle, minimum height=4em, text width=5cm}}
 
 \renewcommand{\ex}{1}
 
@@ -13,20 +13,40 @@
     \begin{exercise}[Data Types]
         \hfill
         \begin{center}
-            \tikz[mindmap, concept]{
-                \node[concept] (data types) {Data Types}
-                    child[grow=right] {node[concept] {Qualitative}
-                        child[grow=0] {node[concept] {Textual}}
-                        child[grow=45] {node[concept] {Ordinal}}
-                        child[grow=-45] {node[concept] {Nominal}}
-                        }
-                    child[grow=left] {node[concept] {Quantitative}
-                        child[grow=210] {node[concept] {Interval}}
-                        child[grow=150] {node[concept] {Ratio}}
-                        }
-                ;
-                \node[above=of data types, anno] (a0) {Can be temporal, spacial, or spaciotemporal.};
-                \draw (a0) -- (data types);
+            \scalebox{0.65}{
+                \tikz[mindmap, concept]{
+                    \node[concept] (data types) {Data Types}
+                        child[grow=right] {node[concept] {Qualitative}
+                            child[grow=0] {node[concept] (textual) {Textual}}
+                            child[grow=45] {node[concept] (ordinal) {Ordinal}}
+                            child[grow=-45] {node[concept] (nominal) {Nominal}}
+                            }
+                        child[grow=left] {node[concept] {Quantitative}
+                            child[grow=250] {node[concept] (interval) {Interval}}
+                            child[grow=160] {node[concept] (continous) {Continous}}
+                            child[grow=196] {node[concept] (ratio) {Ratio}}
+                            child[grow=105] {node[concept] (discrete) {Discrete}}
+                            }
+                    ;
+                    \node[above=of data types, anno] (a0) {Can be temporal, spacial, or spaciotemporal.};
+                    \draw (a0) -- (data types);
+                    \node[right=of ordinal, anno] (a1) {The medal category for an athletic event: Gold, Silver, Bronze.};
+                    \draw (a1) -- (ordinal);
+                    \node[above=of ordinal, anno] (a2) {A response to a survey question: based on a scale of "1" to "10".};
+                    \draw (a2) -- (ordinal);
+                    \node[right=of textual, anno] (a3) {A description of a product on Amazon or the full title of an academic research project.};
+                    \draw (a3) -- (textual);
+                    \node[right=of nominal, anno] (a4) {The language of a book on Amazon or the gender selected by a survey participant.};
+                    \draw (a4) -- (nominal);
+                    \node[left=of discrete, anno] (a5) {Days of the week or the number of seats in a theatre.};
+                    \draw (a5) -- (discrete);
+                    \node[left=of continous, anno] (a6) {Height and weight, time or temperature.};
+                    \draw (a6) -- (continous);
+                    \node[left=of ratio, anno] (a7) {The number of sales of a book or the forecasted amount of rainfall in mm.};
+                    \draw (a7) -- (ratio);
+                    \node[left=of interval, anno] (a8) {The measure for temperature in a weather forecast or when you calculate intelligence in an IQ test.};
+                    \draw (a8) -- (interval);
+                }
             }
         \end{center}
     \end{exercise}
