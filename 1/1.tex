@@ -57,7 +57,7 @@
 
     \begin{exercise}[Why Visualize -- Real Data Example] \hfill
         \begin{enumerate}
-            \item Specifically, each attribute is (to some degree) continuous and temporal by year.
+            \item Specifically, each attribute is (to some degree) continuous and temporal by year. %1
             \begin{itemize}
                 \item \lstinline|UNEMP|: The percentage of the unemployed over the (insured) employed. Ratio data type.
                 \item \lstinline|WAGES|: Mean weekly earnings of full-time employees in shillings. Ratio data type.
@@ -66,12 +66,18 @@
                 \item \lstinline|NNP|: The net national product---economic output measured in millions of pounds. Contextually correlating with difference between \lstinline|WAGES| and \lstinline|BENEFITS|. Interval data type (might be negative).
                 \item \lstinline|DEMAND|: Ratio of \lstinline|NNP| to its future estimated value (\lstinline|NNP|\(^*\)). Ratio data type.
             \end{itemize}
-            \item[2. 4. 5.] See \lstinline|1.3.py|, etc.
+            \item[2. 4. 5.] See \lstinline|1.3.py|, etc. %2
             \setcounter{enumi}{5}
 
-            \item ...
-            \item ...
-            \item ...
+            \item ... %6
+            \item We \emph{compare} the unemployment rate to the BWRATIO value and find low correlation %7
+            \item %8
+            \begin{itemize}
+                \item In contrast to [BK79] our visualization shows low correlation of unemployment
+                and the benefits to wages ratio, which suggests that high benefits play an 
+                insignificant role to the unemployment ratio
+                \item Oftentimes scaling by the inverse of standard deviation and substracting the mean value results in plots with values that are more within the same y-range and therefore more easy to compare by eye
+            \end{itemize}
             \item It might be explained due to the record birth-rate in the England\footnote{\url{https://www.bbc.com/news/magazine-16853368}}, stirring chaos and resulting in extreme above replacement-level fertility, greatly influencing the \lstinline|NNP| and predictions of such.
         \end{enumerate}
     \end{exercise}

@@ -16,15 +16,3 @@ immediately eliminate excess unemployment
 - "business is bad" periods cause trusted employees to be retained, which are then
 used for tasks of dismissed employees and maintanance, causing output to be lower
 relative to the trend
-
-# 6. Action Target
-We __compare__ the unemployment rate to the bwratio value and find low correlation.
-
-# 8. Findings
-- In contrast to \[BK79\] our visualization shows low correlation of unemployment
-and the benefits to wages ratio, which suggests that high benefits play an 
-insignificant role to the unemployment ratio.
-- Oftentimes scaling by the inverse of standard deviation and substracting the mean
-value results in plots with values that are more within the same y-range and therefore
-more easy to compare by eye
-
