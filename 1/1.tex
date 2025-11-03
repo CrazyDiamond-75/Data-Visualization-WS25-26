@@ -23,7 +23,7 @@
                             }
                         child[grow=left] {node[concept] {Quantitative}
                             child[grow=250] {node[concept] (interval) {Interval}}
-                            child[grow=160] {node[concept] (continous) {Continous}}
+                            child[grow=160] {node[concept] (continuous) {Continuous}}
                             child[grow=196] {node[concept] (ratio) {Ratio}}
                             child[grow=105] {node[concept] (discrete) {Discrete}}
                             }
@@ -40,8 +40,8 @@
                     \draw (a4) -- (nominal);
                     \node[left=of discrete, anno] (a5) {Days of the week or the number of seats in a theatre.};
                     \draw (a5) -- (discrete);
-                    \node[left=of continous, anno] (a6) {Height and weight, time or temperature.};
-                    \draw (a6) -- (continous);
+                    \node[left=of continuous, anno] (a6) {Height and weight, time or temperature.};
+                    \draw (a6) -- (continuous);
                     \node[left=of ratio, anno] (a7) {The number of sales of a book or the forecasted amount of rainfall in mm.};
                     \draw (a7) -- (ratio);
                     \node[left=of interval, anno] (a8) {The measure for temperature in a weather forecast or when you calculate intelligence in an IQ test.};
@@ -55,6 +55,24 @@
         See \lstinline|1.2.py|, \lstinline|1.2.py.out|, and \lstinline|1.2.pdf|.
     \end{exercise}
 
-    \begin{exercise}[Why Visualize -- Real Data Example]
+    \begin{exercise}[Why Visualize -- Real Data Example] \hfill
+        \begin{enumerate}
+            \item Specifically, each attribute is (to some degree) continuous and temporal by year.
+            \begin{itemize}
+                \item \lstinline|UNEMP|: The percentage of the unemployed over the (insured) employed. Ratio data type.
+                \item \lstinline|WAGES|: Mean weekly earnings of full-time employees in shillings. Ratio data type.
+                \item \lstinline|BENEFITS|: Weekly pension of adult males in a family with two children. Ratio data type.
+                \item \lstinline|BWRATIO|: \lstinline|BENEFITS| over \lstinline|WAGES|---the ratio of incoming income over outgoing pension. Ratio data type.
+                \item \lstinline|NNP|: The net national product---economic output measured in millions of pounds. Contextually correlating with difference between \lstinline|WAGES| and \lstinline|BENEFITS|. Interval data type (might be negative).
+                \item \lstinline|DEMAND|: Ratio of \lstinline|NNP| to its future estimated value (\lstinline|NNP|\(^*\)). Ratio data type.
+            \end{itemize}
+            \item[2. 4. 5.] See \lstinline|1.3.py|, etc.
+            \setcounter{enumi}{5}
+
+            \item ...
+            \item ...
+            \item ...
+            \item It might be explained due to the record birth-rate in the England\footnote{\url{https://www.bbc.com/news/magazine-16853368}}, stirring chaos and resulting in extreme above replacement-level fertility, greatly influencing the \lstinline|NNP| and predictions of such.
+        \end{enumerate}
     \end{exercise}
 \end{document}
