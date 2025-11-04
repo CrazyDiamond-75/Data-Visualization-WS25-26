@@ -28,6 +28,9 @@
 # Ignore them by default but add rules for each individual submission.
 *.pdf
 
+# Python
+.venv
+
 # 1
 DatasaurusDozen.tsv
 kochin.CSV
