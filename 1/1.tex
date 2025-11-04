@@ -3,7 +3,7 @@
 \makeatletter
 \tikzset{concept/.style={circle,draw=\tikz@concept@color,every concept}}
 \makeatother
-\tikzset{anno/.style={draw, font=\small, rectangle, minimum height=4em, text width=5cm}}
+\tikzset{anno/.style={draw, font=\small, rectangle, inner sep=5pt, text width=14em, minimum height=1em}}
 
 \renewcommand{\ex}{1}
 
@@ -13,7 +13,7 @@
     \begin{exercise}[Data Types]
         \hfill
         \begin{center}
-            \scalebox{0.65}{
+            \scalebox{0.6}{
                 \tikz[mindmap, concept]{
                     \node[concept] (data types) {Data Types}
                         child[grow=right] {node[concept] {Qualitative}
@@ -72,8 +72,10 @@
             \item ... %6
             \item We \emph{compare} the unemployment rate to the \lstinline|BWRATIO| value and visually discover a small correlation. %7
             \item %8
-            In contrast to [BK79] our visualization shows low correlation of unemployment and the benefits to wages ratio, which suggests that high benefits play an insignificant role to the unemployment ratio.
-            Scaling by the inverse of standard deviation and subtracting the mean value may result in plots with values that are more within the same y-range and therefore easier to compare by eye.
+            In contrast to [BK79] our visualization only shows low correlation of unemployment and the benefits to wages ratio, which suggests that high benefits play an insignificant role to the unemployment ratio.
+            
+            Scaling by the inverse of standard deviation and subtracting the mean value results in plots with values that are more within the same y-range and therefore easier to compare by eye.
+            As opposed to normalizing the attributes by directly mapping them to a scale \([0,1]\) where \(0\) is equal to the attribute minimum, and \(1\) is equal to the attribute maximum, normalizing by the applied schema is less sensitive to outliers and better maintains the original shape of the data.
 
             \item It might be explained due to the record birth-rate in the England\footnote{\url{https://www.bbc.com/news/magazine-16853368}}, stirring chaos and resulting in extreme above replacement-level fertility, greatly influencing the \lstinline|NNP| and predictions of such.
         \end{enumerate}
