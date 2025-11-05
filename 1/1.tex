@@ -23,7 +23,7 @@
                             }
                         child[grow=left] {node[concept] {Quantitative}
                             child[grow=250] {node[concept] (interval) {Interval}}
-                            child[grow=160] {node[concept] (continuous) {Continuous}}
+                            child[grow=160] {node[concept] (continuous) {Conti-\\nuous}}
                             child[grow=196] {node[concept] (ratio) {Ratio}}
                             child[grow=105] {node[concept] (discrete) {Discrete}}
                             }
@@ -53,6 +53,10 @@
 
     \begin{exercise}[Why Visualize -- Datasaurus]
         See \lstinline|1.2.py|, \lstinline|1.2.py.out|, and \lstinline|1.2.pdf|.
+        The Datasaurus dataset was created by modifying an initial dataset with wanted variance and mean by applying a fixed-point algorithm.
+        On each iteration, some points are moved randomly if the transformation does not significally change the important properties.
+        Additionally, a fitness is calculate which measures, how similar the dataset would be after the transformation with a certain wanted shape.
+        If both fitness and important properties improve/stay similar, an iteration is accepted, and the next iteration is applied.
     \end{exercise}
 
     \begin{exercise}[Why Visualize -- Real Data Example] \hfill
