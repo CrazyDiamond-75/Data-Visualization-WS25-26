@@ -11,8 +11,10 @@
 \begin{document}
     \maketitle
 
-    \begin{exercise}
-        \includegraphics[width=0.8\textwidth]{2.1.pdf}
+    \begin{exercise} \hfill
+        \begin{center}
+            \includegraphics[width=0.8\textwidth]{2.1.pdf}
+        \end{center}
         
         \textbf{a) 2}
         \begin{itemize}
@@ -42,164 +44,114 @@
     \end{exercise}
 
     \begin{exercise}[Weber's Law] \hfill
+    \begin{itemize}
+        \item[a)]
+            Its stats that the smallest detectable difference in stimulus intensity 
+            (the just noticable difference or JND)
+            is a constant proportion of the original stimulus intensity.
+            Mathematically, it can be expressed as:
 
-    (a)\\
+            \[\frac{\triangle I}{I} = k\]
+            $I$ = original intensity of the stimulus,
+            $\triangle I$ = the smallest change in intensity that can be detected (JND),
+            $k$ = a constant, that depends on the type of stimulus (e.g. light, sound,...),
 
-        Its stats that the smallest detectable difference in stimulus intensity 
-        
-        (the just noticable difference or JND)
-        is a constant proportion of the original stimulus intensity.
+            So basically you could say: the stronger the original stimulus,
+            the more change you need
+            for a person to notice a difference.
+            This applies across many senses like brightness, sound, etc.
 
-        Mathematically, it can be expressed as:
+            Fechner's law:
+            This law builds on Weber's law and describes how the perceived intensity of 
+            the stimulus grows as its physical intensity increases.
+            It suggets that our perception of stimulus intensity is logarithmic in nature.
+            Mathematically, Fechner's law can be expressed as:
 
-        \[\frac{\triangle I}{I} = k\]
+            \[S = k \log\left(\frac{I}{I_0}\right)\]
+            \(S\) = perceived intensity (sensation),
+            \(I\) = actual intensity of the stimulus,
+            \(I_0\) = threshold intensity (the minimum intensity that can be detected),
+            \(k\) = a constant that depends on the type of stimulus
 
-        $I$ = original intensity of the stimulus
+            The logarithm in Fechner's law means that as the intensity of the stimulus increases,
+            the perceived intensity increases at a slower rate. This reflects the idea that
+            our perception of changes in stimulus intensity is not linear. Instead larger changes 
+            in physical intensity are required to produce the same change in perceived intensity as
+            the stimulus becomes stronger.
 
-        $\triangle I$ = the smallest change in intensity that can be detected (JND)
-
-        $k$ = a constant, that depends on the type of stimulus (e.g. light, sound,...)\\
-
-        So basically you could say: the stronger the original stimulus,
-        
-        the more change you need
-        for a person to notice a difference.
-
-        This applies across many senses like brightness, sound, etc.\\
-
-        Fechner's law:
-
-        This law builds on Weber's law and describes how the perceived intensity of 
-
-        the stimulus grows as its physical intensity increases.
-
-        It suggets that our perception of stimulus intensity is logarithmic in nature.
-
-        Mathematically, Fechner's law can be expressed as:
-        
-        \[S = k \log\left(\frac{I}{I_0}\right)\]
-
-        \(S\) = perceived intensity (sensation)
-
-        \(I\) = actual intensity of the stimulus
-
-        \(I_0\) = threshold intensity (the minimum intensity that can be detected)
-
-        \(k\) = a constant that depends on the type of stimulus\\
-
-         The logarithm in Fechner's law means that as the intensity of the stimulus increases,
-
-         the perceived intensity increases at a slower rate. This reflects the idea that
-
-         our perception of changes in stimulus intensity is not linear. Instead larger changes 
-
-         in physical intensity are required to produce the same change in perceived intensity as
-
-         the stimulus becomes stronger.\\
-
-
-        (b) See \lstinline|2.2.py|, requires Pandas, Numpy, Matplotlib, and Tkinter installed.
+        \item[b)]
+        See \lstinline|2.2.py|, requires Pandas, Numpy, Matplotlib, and Tkinter installed.
+    \end{itemize}
     \end{exercise}
 
     \begin{exercise}
         The left graph uses law of similarity to show that points are related while the right graph uses law of connection to show relation and law of enclosure to point out a section that is probably more important than the rest or especially noteworthy. Both use the law of past experience giving the viewer the impression that this is likely a time series or similar.
 
-        \includegraphics[width=0.8\textwidth]{2.3.pdf}
+        \begin{center}
+            \includegraphics[width=0.8\textwidth]{2.3.pdf}
+        \end{center}
     \end{exercise}
 
     \begin{exercise}
 
-        \textbf{4 (a)}
-        
-        \begin{figure}[htbp]
-            \centering
-            \includegraphics[width=0.9\textwidth]{Smoodle.png}
-        \end{figure}
+        \begin{itemize}
+            \item[a)]
+
+            \begin{center}
+                \includegraphics[width=0.9\textwidth]{Smoodle.png}
+            \end{center}
 
         Gestalt Principles:
 
         1. Law of proximity
-    
-        Elements that are close together are perceived as belonging together.
 
+        Elements that are close together are perceived as belonging together.
         In this screenshot you can see, that the navigation menu on the left groups links
-        like 
-        
-        "General Information" or "Slides and podcasts" by placing them close together. 
-        Therefore it is
-        
-        easier to navigate between these different groups.\\
+        like:
+        "General Information" or "Slides and podcasts" by placing them close together.
+        Therefore, it is easier to navigate between these different groups.
 
         In the main panel, each date + announcement line are very close to each other, so they obviously 
-        
-        belong together in the category "updates".\\
+        belong together in the category "updates".
 
         2. Law of Common Region
 
         Objects placed inside a common bounded area appear grounded.
-
         In this screenshot the "Lates Updates and Announcements" section is visually
-        enclosed
-        
-        by a rounded rectangle.
-
+        enclosed by a rounded rectangle.
         Also the sidebar on the left is cleary separated by a background panel.
-
-        This creates strong visual grouping and improves navigation clarity.\\
+        This creates strong visual grouping and improves navigation clarity.
 
         3. Law of similarity
 
         Similar elements appear to belong together.
-
         In this screenshot all navigation items use the same font, style and indentation.
-
         Furthermore all announcement entries use identical text formatting (date in bold, message)
-
         Because of this, Users can instantly understand which items share fuctionality
-         
-        or belong to the same type.\\
+        or belong to the same type.
 
         4. Law of Figure-Ground 
 
         The brain separates foreground elements from the background.
-
         In this screenshot, the main course content (in white) stands out against
-        
         the subtle grey navigation area.
-
         The bold title "Data Visualization WS25/26 080085" is clearly meant to be in the foreground.
-
-        This makes the main information pop out more and improves readability.\\
+        This makes the main information pop out more and improves readability.
 
         5. Law of Continuation
 
         People follow visual lines and natural reading flows.
-
         In this screenshot, the left navigation is a vertical list the eye naturally
-        
         follows from top to bottom.
-
         The main announcement feed is also vertically aligned, encouraging smooth scrolling.
-
-        The result is that the User can scan information efficiently without losing track.\\
+        The result is that the User can scan information efficiently without losing track.
 
         6. Law of Pragnanz (Simplicity)
-
-        People prefer simple, organized and predictable structures.
-
-        In this screenshot, there is a clean layout, consistent typography and simple icons.
-
-        All content is arranged in easily digestible modules and because of this the entire interface feels 
         
+        People prefer simple, organized and predictable structures.
+        In this screenshot, there is a clean layout, consistent typography and simple icons.
+        All content is arranged in easily digestible modules and because of this the entire interface feels 
         clean and predictable despite having many functions.
-
-
-
-
-
-
-
-
-
+        \end{itemize}
     \end{exercise}
 \end{document}
