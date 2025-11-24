@@ -42,3 +42,5 @@ kochin.CSV
 
 # 3
 *.html
+!1a.pdf
+!1b.pdf
