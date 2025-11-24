@@ -97,15 +97,15 @@ origin_count = alt.Chart(auto).mark_bar().encode(
     color="origin"
 )
 
-"""
+
 alt.hconcat(
     alt.vconcat(mpg_weight_accel,
                 mpg_weight_accel2),
     mpg_weight_accel3
-    ).save("cars.html")
-"""
+    ).save("mpg_origin_accel.pdf")
 
-years.save("cars.html")
+
+years.save("mpg_hp_weight.pdf")
 
 
 # origin, displacement, mpg
@@ -131,4 +131,4 @@ odm3 = odm.encode(
     opacity="origin"
 )
 
-(odm1 | odm2 | odm3).save("encodings.html")
+(odm1 | odm2 | odm3).save("encodings.pdf")
