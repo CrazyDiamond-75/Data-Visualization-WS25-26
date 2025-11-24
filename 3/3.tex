@@ -57,8 +57,9 @@
             This principle describes when two channels are perceived together as a single
             combined feature. Changing one channel naturally affects the perception of the other.
         \end{itemize}
-
     \end{exercise}
+
+    \setcounter{exercise}{3}
 
     \begin{exercise}[Effectiveness]
         
@@ -68,22 +69,24 @@
         Saturation $\rightarrow$ Luminance $\rightarrow$ Area $\rightarrow$ Length $\rightarrow$ Position
     \end{exercise}
 
-    \begin{exercise}[Car Dataset with Altair]
-        \begin{centering}
+    \pagebreak
+
+    \begin{exercise}[Car Dataset with Altair] \hfill
+        \begin{center}
             \includegraphics[width=0.6\textwidth]{mpg_hp_weight.pdf}
-        \end{centering}
+        \end{center}
 
         During exploration of the dataset I found what I already anticipated: The miles per gallon (mpg) rose over the years. Also cars from the USA were less efficient, heavier and had more horsepowers. Interestingly the median weight roughly stayed the same for European and Japanese cars and even fell over the years for cars from the US, completely in contrast to my impression that cars got on average larger in recent years.
 
-        \begin{centering}
+        \begin{center}
             \includegraphics[width=0.6\textwidth]{mpg_origin_accel.pdf}
-        \end{centering}
+        \end{center}
 
         This chart shows acceleration against mpg, weight and origin. The weight is shown as the opacity of the circles, heavier being more opaque (for some reason Altair did not include this in the legend).
         
-        \begin{centering}
+        \begin{center}
             \includegraphics[width=0.6\textwidth]{encodings.pdf}
-        \end{centering}
+        \end{center}
 
         In my opinion color conveys the origin of a car most clearly and still works well even in very crowded areas on the graph. Shape also creates the right intuition but becomes completely undiscernable in crowded areas. Opacity is definetely bad as it both creates a wrong idea of a continuous scale and is also hard to discern. Probably the worst is size, which isn't shown here but has the same problems as opacity while also completely cluttering the graph.
 
