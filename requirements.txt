@@ -3,3 +3,5 @@ numpy
 matplotlib
 PyQt6
 scikit-learn
+altair
+vega_datasets
