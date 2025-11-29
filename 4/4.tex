@@ -2,6 +2,7 @@
 
 \renewcommand{\ex}{4}
 \setcounter{section}{\ex}
+\newcommand{\Prop}{\text{Pr}}
 
 \begin{document}
     \maketitle
@@ -25,33 +26,66 @@
 
     \begin{exercise}[Likert Scale] \hfill
         \begin{enumerate}
-            \item This question matches best to the second color scheme.
+            \item This question matches best to the second color scheme, as from the perspective of the study participant, there may be no disagreement to the question itself.
+            The interviewer asks this question really to know \emph{how} ready the participant is, which implies a sequential answer space.
+            \item This question matches best to the third scale, as it could easily be used to visualize the lack of confidence in the current leadership---a sequential answer space.
+            \item This question matches best to the first scale, as it comes down to the agreement or disagreement itself---a diverging answer space.
+            The participant might be indifferent to the company's strategy, and the interviewer is interested in the concrete opinion, which might influence the strategy.
         \end{enumerate}
+        Depending on what the interviewer really wants to convey, the color palettes for the second and third answer might also be swapped, as the results may be very similar regarding disagreement.
     \end{exercise}
 
-    \begin{exercise}[Less Color]
-        This visualization looks somewhat pretty because of the many colors used, but it isnt functional at all.
-        It isnt easy to gather much information out of this graph. To fix this problem you could group some of the categories if possible.
-        You could also, instead of using many different colors, use diffrent fonds of grey or choose one color and use different luminance levels.
-        For example blue. (light blue, blue, dark blue, etc.). Dont use too vivid colors, because they compete for attention and make it hard to focus on the data.
-        Also, colors should not be the only distinguishing feature. You could use aspects like line thickness, transparency and labels to make the visualization
-        nicer to look at.
+    \pagebreak
 
+    \begin{exercise}[Less Color]
+        This visualization looks somewhat pretty because of the many colors used, but it is not functional at all.
+        It is not easy to gather much information out of this graph.
+        To fix this problem, you could group some of the categories if possible.
+        You also could, instead of using many different colors, use different shades of grey or choose one color and use different luminance levels, e.g., light blue, blue, dark blue.
+        Do not use too vivid colors, because they compete for attention and make it hard to focus on the data.
+        Also, colors should not be the only distinguishing feature.
+        You should use aspects like line thickness, transparency and labels to make the visualization
+        easier to distinguishing.
     \end{exercise}
 
     \begin{exercise}[Color Vision Deficiency Pt. 1]
+        The total probability for men to have some color vision deficiency is calculated in \autoref{eq:1}.
+
+        \begin{IEEEeqnarray}{c}
+            \label{eq:1}
+            P_m = 2.45\% + 6.10\% + 0.011\% = 8.561\%
+        \end{IEEEeqnarray}
+        
+        \noindent
+        Now we want to calculate the probability, that at least one male reviewer is color blind in some way.
+        We can model this with three Bernoulli random variables \(X_1, X_2, X_3\) with probability \(P_m\) for the event\footnote{\url{https://www.youtube.com/watch?v=aWSN5kaQ1oM}}.
+        We want to calculate \(\Prop(X_1 + X_2 + X_3 \ge 1)\), see \autoref{eq:2}.
+
+        \begin{IEEEeqnarray}{lCl}
+            \label{eq:2}
+            \Prop(X_1 + X_2 + X_3 \ge 1) & = & 1 - \Prop(X_1 + X_2 + X_3 < 1) \\
+                                         & = & 1 - \Prop(X_1 = 0 \wedge X_2 = 0 \wedge X_3 = 0) \nonumber \\
+                                         & = & 1 - \Prop(X_1 = 0) \cdot \Prop(X_2 = 0) \cdot \Prop(X_3 = 0) \nonumber \\
+                                         & = & 1 - (1 - 8.561\%)^3 \nonumber \\
+                                         & = & 23.54\% \nonumber
+        \end{IEEEeqnarray}
+        
+        \noindent
+        Therefore we obtain the probability \(23.54\%\) that at least one of the three male reviewers has some color vision deficiency---a high enough probability for graduates to design all of their graphs color-blind-friendly.
     \end{exercise}
 
     \begin{exercise}[Color Vision Deficiency Pt. 2]
-        By putting the visualization into the color-blindness-simulator, it gets noticable that people who suffer from
+        By putting the visualization into the color blindness simulator, it gets noticeable that people who suffer from
         Protanopia (red blindness), Deuteranopia (green blindness), Protanomaly (red weakness), Deuteranomaly (green weakness) and Monochromacy
         really struggle to distinguish between the two bars. 
-        By changing the colors of the bars, everyone who has a color vision deficieny can still see and use the information on this chart.
+        By changing the colors of the bars, everyone who has a color vision deficiency can still see and use the information on this chart, see \autoref{fig:1}.
 
-        \begin{center}
-                \includegraphics[width=0.5\textwidth]{barchart.png}
-        \end{center}
-
+        \begin{figure}[t]
+            \centering
+            \includegraphics[width=0.5\textwidth]{barchart.png}
+            \caption{The bar chart with colors adjusted for color blindness.}
+            \label{fig:1}
+        \end{figure}
     \end{exercise}
     
     \setcounter{exercise}{6}
