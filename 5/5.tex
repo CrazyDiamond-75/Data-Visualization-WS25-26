@@ -1,0 +1,34 @@
+\input{../preambula}
+
+\renewcommand{\ex}{5}
+\setcounter{section}{\ex}
+
+\begin{document}
+    \maketitle
+
+    \begin{exercise}[] \hfill
+    \end{exercise}
+
+    \begin{exercise}[] \hfill
+    \end{exercise}
+
+    \begin{exercise}[]
+    \end{exercise}
+
+    \begin{exercise}[Bring the Olympic Games to Kiel!] \hfill
+        % For context:
+        % - The svg is the inkscape "source" file
+        % - The pdf is for inclusion in tis' document
+        % - The png is for calculating the colour count
+        \begin{figure}[t]
+            \centering
+            \includegraphics[width=0.6\textwidth]{Hamburg referendum.pdf}
+            \caption{A bar chart of the referendum vote percentage, clipped by the outline of Hamburg, rotated such that the \enquote{yes} portion is much larger by area}
+            \label{fig:4a}
+        \end{figure}
+
+        In \autoref{fig:4a} the amount of people in favour appears to be much larger, because by volume of colour they are. The actual data is encoded as the height of the red or green parts of the outline of Hamburg and matches the data from the referendum.
+
+        I calculated the lie factor to be about $13.67$, since the value of $|\text{data}|\approx 0.0631$ and $|\text{graph}| \approx 0.8630$ if counted by pixel colour distribution.
+    \end{exercise}
+\end{document}
