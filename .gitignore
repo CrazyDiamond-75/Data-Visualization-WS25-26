@@ -44,3 +44,12 @@ kochin.CSV
 *.html
 !1a.pdf
 !1b.pdf
+
+# 6
+!6/6.3.PLOT_BAR.pdf
+!6/6.3.PLOT_PI_Both.pdf
+!6/6.3.PLOT_PI_Other.pdf
+!6/6.3.PLOT_PI_Python.pdf
+!6/6.3.PLOT_PI_R.pdf
+!6/6.3.PLOT_SLOPE.pdf
+!6/6.3.PLOT_STACKED_BAR.pdf
