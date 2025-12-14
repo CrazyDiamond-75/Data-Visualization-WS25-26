@@ -1,5 +1,5 @@
 \input{../preambula}
-
+\usepackage{multirow}
 \renewcommand{\ex}{6}
 \setcounter{section}{\ex}
 \newcommand{\Prop}{\text{Pr}}
@@ -7,13 +7,145 @@
 \begin{document}
     \maketitle
 
-    \begin{exercise}
+    \begin{exercise}\hfill
+        \begin{center}
+        \scalebox{0.4}{
+        \begin{tabular}{|l|l|l|l|l|l|l|}
+        \hline
+        \multicolumn{7}{|c|}{Tabular Data Visualization Idioms} \\
+        \hline
+        Name & Data & Derived Data & Marks & Channels & Tasks & Scalability \\
+        \hline
+        Scatterplot &
+        2 quantitative values &
+        -- &
+        Points &
+        x/y position, color, size &
+        Correlation, clusters, outliers &
+        Hundreds of items \\
+        \hline
+        Bar Chart &
+        1 categorical key, 1 quantitative value &
+        -- &
+        Bars (lines) &
+        Length, aligned position &
+        Compare values, lookup &
+        Dozens--hundreds of categories \\
+        \hline
+        Stacked Bar Chart &
+        2 categorical keys, 1 quantitative value &
+        -- &
+        Stacked bars &
+        Length, color hue &
+        Part-to-whole comparison &
+        Main key: 100s, stacked key: $\sim$10 \\
+        \hline
+        Normalized Stacked Bar Chart &
+        2 categorical keys, 1 quantitative value &
+        Normalization to 100\% &
+        Stacked bars &
+        Relative length, color &
+        Relative part-to-whole &
+        Similar to stacked bars \\
+        \hline
+        Line / Dot Chart &
+        1 ordered key, 1 quantitative value &
+        -- &
+        Points + lines &
+        Aligned position &
+        Trend detection &
+        Hundreds of items \\
+        \hline
+        Indexed Line Chart &
+        1 ordered key, 1 quantitative value &
+        Indexed values &
+        Points + lines &
+        Relative position &
+        Change over time &
+        Same as line chart \\
+        \hline
+        Streamgraph &
+        1 categorical key, 1 ordered key, 1 value &
+        Layer geometry &
+        Filled areas &
+        Height, color &
+        Evolution over time &
+        100s time steps, 100s categories \\
+        \hline
+        Gantt Chart &
+        1 categorical key, 2 quantitative values &
+        Duration &
+        Line segments &
+        Horizontal position, length &
+        Temporal overlaps &
+        Dozens of items \\
+        \hline
+        Slopegraph &
+        2 quantitative values &
+        Change magnitude &
+        Points + lines &
+        Vertical position, slope &
+        Change and rank comparison &
+        Dozens of items \\
+        \hline
+        Heatmap &
+        2 categorical keys, 1 quantitative value &
+        -- &
+        Cells &
+        Color &
+        Patterns, clusters &
+        Up to millions of cells \\
+        \hline
+        Clustered Heatmap &
+        Heatmap data &
+        Clustering hierarchies &
+        Cells + tree edges &
+        Color, position &
+        Assess clustering quality &
+        Limited by clustering \\
+        \hline
+        Pie Chart &
+        1 categorical key, 1 quantitative value &
+        -- &
+        Sectors &
+        Angle / arc length &
+        Part-to-whole (few categories) &
+        Few categories only \\
+        \hline
+        SPLOM &
+        Multiple quantitative attributes &
+        -- &
+        Points &
+        x/y position &
+        Pairwise correlations &
+        $\sim$10 attributes \\
+        \hline
+        Parallel Coordinates &
+        Multiple quantitative attributes &
+        -- &
+        Polylines &
+        Position along axes &
+        Multivariate patterns &
+        Dozens of attributes \\
+        \hline
+        \end{tabular}
+        }
+    \end{center}
     \end{exercise}
 
     \begin{exercise}
     \end{exercise}
 
     \begin{exercise}
+        Pros and Cons:
+        \begin{itemize}
+            \item pro: Connections between the data are easier to understand because of the arrows
+            \item pro: Different colors for different aspects
+            \item con: Too many arrows result in the diagramm being confusing
+            \item con: It is difficult to understand the meanings behind those many arrows
+            \item con: Without a good overview, it is difficult to compare the data
+        \end{itemize}
+        
     \end{exercise}
 
 \end{document}
