@@ -26,10 +26,10 @@ data_simple = pd.DataFrame.from_dict({
 data_long = (
     data
     .reset_index()
-    .rename(columns={'index': 'Language'})
+    .rename(columns={'index': 'Usage in 2016'})
     .melt(
-        id_vars='Language',
-        var_name='Other Language',
+        id_vars='Usage in 2016',
+        var_name='Usage in 2017',
         value_name='Portion'
     )
 )
@@ -37,16 +37,16 @@ data_long = (
 data_unbiased_long = (
     data_unbiased
     .reset_index()
-    .rename(columns={'index': 'Language'})
+    .rename(columns={'index': 'Usage in 2016'})
     .melt(
-        id_vars='Language',
-        var_name='Other Language',
+        id_vars='Usage in 2016',
+        var_name='Usage in 2017',
         value_name='Portion'
     )
 )
 
 data_unbiased_long['2016 -> 2017'] = (
-    data_unbiased_long['Language'] + " -> " + data_long['Other Language']
+    data_unbiased_long['Usage in 2016'] + " -> " + data_long['Usage in 2017']
 )
 
 data_simple_long = (
@@ -61,18 +61,18 @@ data_simple_long = (
 # exit()
 
 ## PIE CHARTS ##
-cats = {'Language': data.columns}
-for cat, line in zip(data.columns, data):
-    vals = {'Portion': list(data[line])}
+cats = {'Movement from 2016': data_unbiased.columns}
+for cat, line in zip(data_unbiased.columns, data_unbiased):
+    vals = {'Portion': list(data_unbiased[line])}
     source = pd.DataFrame(cats | vals)
 
-    # Subtitle: Movement to Language from 2016 to 2017.
-    alt.Chart(source, title=f'Pie Chart for {cat}').mark_arc().encode(
+    # Subtitle: Users of {cat} in 2017 from users in 2016.
+    alt.Chart(source, title=f'Pie Chart: {cat}').mark_arc().encode(
         theta='Portion',
         color=alt.Color(
-            'Language',
+            'Movement from 2016',
             scale=alt.Scale(
-                domain=data.columns,
+                domain=data_unbiased.columns,
                 range=["#1a66ba", '#ff6596', '#ffcf3c', 'grey']
             )
         )
@@ -81,24 +81,24 @@ for cat, line in zip(data.columns, data):
 ## STACKED BAR CHART ##
 # Subtitle: Users in 2017 from users in 2016.
 alt.Chart(data_unbiased_long, title='Stacked Bar Chart').mark_bar().encode(
-    x='Other Language',
+    x=alt.X('Usage in 2017', sort='y'),
     y='sum(Portion)',
     color=alt.Color(
-        'Language',
+        'Usage in 2016',
         scale=alt.Scale(
-            domain=data.columns,
+            domain=data_unbiased.columns,
             range=["#1a66ba", '#ff6596', '#ffcf3c', 'grey']
         )
     )
 ).save('6.3.PLOT_STACKED_BAR.pdf')
 
 ## BAR CHART ##
-# Subtitle: Total movements between 2016 and 2017.
+# Subtitle: All language usage movements between 2016 and 2017.
 alt.Chart(data_unbiased_long, title='Bar Chart').mark_bar().encode(
-    x='2016 -> 2017',
+    x=alt.X('2016 -> 2017', sort='y'),
     y='Portion',
     color=alt.Color(
-        'Other Language',
+        'Usage in 2017',
         scale=alt.Scale(
             domain=data.columns,
             range=["#1a66ba", '#ff6596', '#ffcf3c', 'grey']
