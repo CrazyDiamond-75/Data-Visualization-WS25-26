@@ -7,7 +7,7 @@
 \begin{document}
     \maketitle
 
-    \begin{exercise}\hfill
+    \begin{exercise}[Options for Tabular Data]\hfill
         \begin{center}
         \scalebox{0.4}{
         \begin{tabular}{|l|l|l|l|l|l|l|}
@@ -133,11 +133,11 @@
     \end{center}
     \end{exercise}
 
-    \begin{exercise}
+    \begin{exercise}[Plot Types]
     \end{exercise}
 
-    \begin{exercise} \hfill
-        \begin{itemize}
+    \begin{exercise}[Chart Selection] \hfill
+        \begin{enumerate}
             \item[a)]
                 \begin{itemize}
                     \item Pros \\
@@ -227,9 +227,57 @@
                     Strongly highlights change and rank shifts.
                     Less suitable for precise value reading or part-to-whole analysis. 
             
-                \end{itemize}
-        \end{itemize}
-        
+                \end{itemize} 
+        \end{enumerate}
+
+        \begin{figure}[t]
+            \centering
+            \begin{subfigure}[t]{0.49\textwidth}
+                \centering
+                \includegraphics[scale=0.4]{6.3.PLOT_PI_R.pdf}
+            \end{subfigure}
+            \hfill
+            \begin{subfigure}[t]{0.49\textwidth}
+                \centering
+                \includegraphics[scale=0.4]{6.3.PLOT_PI_Both.pdf}
+            \end{subfigure} \\
+            \begin{subfigure}[t]{0.49\textwidth}
+                \centering
+                \includegraphics[scale=0.4]{6.3.PLOT_PI_Python.pdf}
+            \end{subfigure}
+            \hfill
+            \begin{subfigure}[t]{0.49\textwidth}
+                \centering
+                \includegraphics[scale=0.4]{6.3.PLOT_PI_Other.pdf}
+            \end{subfigure}
+            \caption{Pie charts. Users of specific language in 2017 from users in 2016.}
+            \label{fig:3a}
+        \end{figure}
+
+        \begin{figure}[t]
+            \centering
+            \includegraphics[scale=0.6]{6.3.PLOT_BAR.pdf}
+            \caption{Bar chart. All language usage movements between 2016 and 2017.}
+            \label{fig:3c}
+        \end{figure}
+
+        \begin{figure}[t]
+            \centering
+            \begin{subfigure}[t]{0.49\textwidth}
+                \centering
+                \includegraphics[scale=0.6]{6.3.PLOT_STACKED_BAR.pdf}
+                \caption{Users in 2017 from users in 2016.}
+                \label{fig:3b}
+            \end{subfigure}
+            \hfill
+            \begin{subfigure}[t]{0.49\textwidth}
+                \centering
+                \includegraphics[scale=0.6]{6.3.PLOT_SLOPE.pdf}
+                \caption{Change in total language usage between 2016 and 2017.}
+                \label{fig:3d}
+            \end{subfigure}
+            \caption{Stacked bar chart and slope graph.}
+        \end{figure}
     \end{exercise}
 
 \end{document}
