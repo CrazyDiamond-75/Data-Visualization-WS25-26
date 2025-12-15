@@ -133,7 +133,47 @@
     \end{center}
     \end{exercise}
 
-    \begin{exercise}[Plot Types]
+    \begin{exercise}[Plot Types] \hfill
+
+        \begin{itemize}
+            \item Bar: Shows proportions, can show trends, can make comparisons. \lstinline[language=python]|alt.Chart(data).mark_bar().encode(x="category", y="quantity")|
+            \item Unit: Shows distributions and proportions. Unit charts don't encode data in position of marks as is common, but instead only in the shape or color of the marks. They're useful for example when showing quantities in demographics or partitions of something, similar to a pie chart, but easier to compare when multiple charts are next to another.
+            
+            \begin{lstlisting}[language=python3]
+cols = 10
+alt.Chart(data)
+    .transform_calculate(row=f"ceil(datum.id/{cols})")
+    .transform_calculate(col=f"datum.id - datum.row*{cols}")
+    .mark_point(filled=True)
+    .encode(alt.X("col:O").axis(None), alt.Y("row:O").axis(None))\end{lstlisting}
+            
+            \item Stacked Area: Shows proportions, shows trends, can show distributions and in some cases make comparisons (though not always well).
+            \lstinline[language=python3]|alt.Chart(data).mark_area().encode(x="date:T", y="quantity", color="category")|
+            
+            \item Stacked Bar: Shows proportions, distributions and makes comparisons.
+            \lstinline[language=python3]|alt.Chart(data).mark_bar().encode(x="category1", color="category2", y="quantity")|
+
+            \item Slope: Maps something, shows trends, can make comparisons.
+            \begin{lstlisting}[language=python3]
+alt.Chart(data).mark_line().encode(
+    x="leftright:O",
+    y="rank:O",
+    color="category" # or rising/falling
+).transform_window(
+    rank="rank()",
+    sort=[
+        alt.SortField("value", order="descending"),
+        alt.SortField("diff", order="descending")
+    ],
+    groupby=["leftright"])\end{lstlisting}
+
+            \item Scatterplot: Can map something, can show trends, shows distribution. \lstinline[language=python3]|alt.Char(data).mark_point(x="v1", y="v2")|
+            \item Lineplot: Shows trends and can make comparisons. \lstinline[language=python3]|alt.Chart(data).mark_line(x="time", y="value")|
+            \item 2x2 Matrix: Makes comparisons, can map something and can show distributions. \lstinline[language=python3]|alt.Chart(data).mark_rect().encode(x="x:O", y="y:O", color="z:Q")|
+            \item Dot Plot: Shows distributions, can show trends. These can show occurances of individual events or specific datapoints, similar to scatterplots, but only along one axis. By reading the density and position one can then identify, for example when a machine is used (if the axis is time) or what values are more common in a quantity. \lstinline[language=python3]|alt.Chart(data).mark_point(filled=True, shape="circle").encode(y="ordered")|
+        \end{itemize}
+
+        I believe none of the plot types can necessarily explain concepts, only aid in explanations, as all plots, even with proper axis can be easily misread.
     \end{exercise}
 
     \begin{exercise}[Chart Selection] \hfill
