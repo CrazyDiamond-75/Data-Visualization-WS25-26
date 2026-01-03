@@ -1,0 +1,108 @@
+\input{../preambula}
+\renewcommand{\ex}{7}
+\setcounter{section}{\ex}
+
+\begin{document}
+    \maketitle
+    
+    \begin{exercise}[Warmup] \hfill
+        \begin{enumerate}
+            \item[a)] The steps to-do are as follows:
+            \begin{enumerate}
+                \item[1.] Center/normalize\footnote{Standard normalization is generally not needed, PCA only requires centered points.} points in matrix \(X \in \R^{d \times n}\) if the mean dimensional components are not zero.
+                \item[2.] Calculate the covariance matrix \(C_X := 1/n \cdot X^TX\).\footnote{The scalar is not useful, we only need a matrix, which is proportional to the \emph{actual} covariance matrix.}
+                \item[3.] Find the eigenvalues of \(C_X\) by solving for the roots of the characteristic polynomial of \(C\).
+                Do this by solving for all \(\lambda\) in \(0 = \det(C_X - \lambda I_d)\), where \(I_d\) is the identity matrix of dimension \(d\).
+                \item[4.] Find the eigenvectors of \(C_X\) by finding \(v \in \R^d\), such that \((0)^d = (C_X - \lambda I_d) \times v\) for all eigenvalues \(\lambda\).
+                \item[5.] All orthogonal directions in \(X\) in decreasing variance are found by ordering the eigenvectors by decreasing absolute corresponding eigenvalue.
+                \item[6.] The original dataset can be projected on a dimensionality reduced space by picking the most variant directions, normalizing them, and putting them column-wise a matrix \(V\), and multiplying \(P = X \times P\).
+            \end{enumerate}
+
+            \item[b)]
+            We get the centered matrix
+            
+            \[\begin{bmatrix}
+                -1 & -1 \\
+                1 & 1 \\
+                -1 & 1 \\
+                1 & -1
+            \end{bmatrix}.\]
+
+            Thus we get the covariance matrix
+
+            \[\begin{bmatrix}
+                1 & 0 \\
+                0 & 1
+            \end{bmatrix}.\]
+
+            \item[c)]
+            We firstly calculate the eigenvalues
+
+            \[0 = \det
+            \begin{bmatrix}
+                -5 - \lambda && 2 \\
+                -7 && 4 - \lambda
+            \end{bmatrix}
+            = x^2 + x - 6.\]
+
+            This polynomial has solutions \(\lambda_1 = -3, \lambda_2 = 2\).
+            For the eigenvector of \(\lambda_1\) we have to find non-trivial \(v_1\), such that
+            
+            \[
+            \begin{bmatrix}
+                -2 & 2 \\
+                -7 & 7
+            \end{bmatrix}
+            \times
+            \begin{bmatrix}
+                v_1^1 \\
+                v_1^2
+            \end{bmatrix}
+            =
+            \begin{bmatrix}
+            0 \\
+            0
+            \end{bmatrix}.
+            \]
+
+            We can pick \(v_1 = \begin{bmatrix} 1 & 1 \end{bmatrix}^T\) which is our first eigenvector.
+            For the second eigenvalue, we have to solve 
+
+            \[
+            \begin{bmatrix}
+                -7 & 2 \\
+                -7 & 2
+            \end{bmatrix}
+            \times
+            \begin{bmatrix}
+                v_2^1 \\
+                v_2^2
+            \end{bmatrix}
+            =
+            \begin{bmatrix}
+            0 \\
+            0
+            \end{bmatrix}.
+            \]
+
+            A solution, the second eigenvector, is found using \(v_2 = \begin{bmatrix} 2 & 7 \end{bmatrix}^T\).
+
+            \item[d)]
+            The matrix has the characteristic polynomial of \(-x^3 + 25x^2 - 200x + 500\) which has (real) roots \(\lambda_1 = 10, \lambda_2 = 5\).
+
+            
+            \item[e)]
+
+
+        \end{enumerate}
+    \end{exercise}
+
+    \begin{exercise}[Data]
+    \end{exercise}
+
+    \begin{exercise}{PCA}
+    \end{exercise}
+    
+    \begin{exercise}[PCA -- SKLEARN]
+    \end{exercise}
+\end{document}
