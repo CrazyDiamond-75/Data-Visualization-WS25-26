@@ -9,17 +9,17 @@
         \begin{enumerate}
             \item[a)] The steps to-do are as follows:
             \begin{enumerate}
-                \item[1.] Center/normalize\footnote{Standard normalization is generally not needed, PCA only requires centered points.} points in matrix \(X \in \R^{d \times n}\) if the mean dimensional components are not zero.
+                \item[1.] Centre/normalize\footnote{Standard normalization is generally not needed, PCA only requires centred points.} points in matrix \(X \in \R^{d \times n}\) if the mean dimensional components are not zero.
                 \item[2.] Calculate the covariance matrix \(C_X := 1/n \cdot X^TX\).\footnote{The scalar is not useful, we only need a matrix, which is proportional to the \emph{actual} covariance matrix.}
                 \item[3.] Find the eigenvalues of \(C_X\) by solving for the roots of the characteristic polynomial of \(C\).
                 Do this by solving for all \(\lambda\) in \(0 = \det(C_X - \lambda I_d)\), where \(I_d\) is the identity matrix of dimension \(d\).
                 \item[4.] Find the eigenvectors of \(C_X\) by finding \(v \in \R^d\), such that \((0)^d = (C_X - \lambda I_d) \times v\) for all eigenvalues \(\lambda\).
                 \item[5.] All orthogonal directions in \(X\) in decreasing variance are found by ordering the eigenvectors by decreasing absolute corresponding eigenvalue.
-                \item[6.] The original dataset can be projected on a dimensionality reduced space by picking the most variant directions, normalizing them, and putting them column-wise a matrix \(V\), and multiplying \(P = X \times P\).
+                \item[6.] The centred dataset can be projected on a dimensionality reduced space by picking the most variant directions, normalizing them, and putting them column-wise a matrix \(V\), and multiplying \(P = X \times P\).
             \end{enumerate}
 
             \item[b)]
-            We get the centered matrix
+            We get the centred matrix
             
             \[\begin{bmatrix}
                 -1 & -1 \\
@@ -28,7 +28,7 @@
                 1 & -1
             \end{bmatrix}.\]
 
-            Thus we get the covariance matrix
+            Thus, we get the covariance matrix
 
             \[\begin{bmatrix}
                 1 & 0 \\
@@ -88,12 +88,39 @@
             A solution, the second eigenvector, is found using \(v_2 = \begin{bmatrix} 2 & 7 \end{bmatrix}^T\).
 
             \item[d)]
-            The matrix has the characteristic polynomial of \(-x^3 + 25x^2 - 200x + 500\) which has (real) roots \(\lambda_1 = 10, \lambda_2 = 5\).
+            The matrix has the characteristic polynomial of \(-x^3 + 25x^2 - 200x + 500\) which has (real) roots \(\lambda_1 = 10, \lambda_2 = 5\). Thus for the first eigenvector we have the following linear equation system.
 
-            
+            \begin{equation*}
+                \begin{IEEEeqnarraybox}[\IEEEeqnarraystrutmode]{l'v;r'r'r;v'r}
+                    \text{I}    && -5v_1^1 & -10v_2^1 & -5v_3^1 && 0 \\
+                    \text{II}   &&  2v_1^1 & -4v_2^1  &  2v_3^1 && 0 \\
+                    \text{III}  && -4v_1^1 & -8v_2^1  & -4v_3^1 && 0
+                \end{IEEEeqnarraybox}
+            \end{equation*}
+
+            From \(\text{I} + 5/4 \cdot \text{III} = 0\) we get \(\exists a \in \R: av_1^1 + av_3^1 = 0\).
+            Therefore, we know \(v_1^1 = -v_3^1\).
+            From this we can transform II into \(0v_1^1 - 4v_2^1 = 0\) and eliminate \(v_2^1\).
+            Thus, we obtain \(v_1 = \begin{bmatrix}1 & 0 & -1\end{bmatrix}^T\).
+
+            For the second eigenvalue we obtain one eigenvector \(v_2 = \begin{bmatrix}-5 & 2 & -4\end{bmatrix}^T\) by substitution.
+
             \item[e)]
+            Using the previously described steps, we obtain a factor of the covariance matrix:
 
+            \[
+            \begin{bmatrix}
+                21 & 7 & -24 \\
+                7 & 532/3 & 17 \\
+                -24 & 17 & 31
+            \end{bmatrix}.
+            \]
 
+            We obtain the largest eigenvalue \(\lambda_1 \approx 178\), with eigenvector \(v_1 = \begin{bmatrix}0.028 & 0.994 & 0.11\end{bmatrix}^T\).
+
+            To project the points \(p_1\) and \(p_2\) to the direction, we have to center them again first to obtain \(\hat p_1 = \begin{bmatrix}1 & 13/3 & 3\end{bmatrix}\) and \(\hat p_2 = \begin{bmatrix}4 & 130/3 & 22\end{bmatrix}\).
+
+            Finally, we obtain the first projection \(4.69 \approx \hat p_1 v_1\) and second projection \(45.89 \approx v_1 \hat p_2\).
         \end{enumerate}
     \end{exercise}
 
