@@ -192,5 +192,28 @@
     \end{exercise}
     
     \begin{exercise}[PCA -- SKLEARN]
+        \begin{figure}
+            \centering
+            \includegraphics[width=0.5\textwidth]{covariance.pdf}
+            \caption{I decided to calculate correlation instead, since covariance has an unreadable scale here.}
+            \label{fig:7.4a}
+        \end{figure}
+        \begin{figure}
+            \centering
+            \includegraphics[width=0.5\textwidth]{pcad.pdf}
+            \caption{PCA transformed Data}
+            \label{fig:7.4c}
+        \end{figure}
+        \begin{figure}
+            \centering
+            \includegraphics[width=0.5\textwidth]{components.pdf}
+            \caption{Component contribution}
+            \label{fig:7.4e}
+        \end{figure}
+        The covariance matrix can be seen in \autoref{fig:7.4a}.
+
+        From the graph in \autoref{fig:7.4c} it can be seen that cars in the dataset generally fall into one of three categories, one of which mostly consisting of american cars. Also (as could already be seen in the covariance chart) the majority of difference is along one axis.
+
+        As can be seen in \autoref{fig:7.4e}, 2 components are sufficient to explain over 90\% of the dataset.
     \end{exercise}
 \end{document}
