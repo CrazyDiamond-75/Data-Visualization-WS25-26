@@ -125,9 +125,70 @@
     \end{exercise}
 
     \begin{exercise}[Data]
+    The Iris dataset consists of 150 data points and the following variables:
+    \begin{itemize}
+        \item Iris species (categorical)
+        \item Sepal.Length
+        \item Sepal.Width
+        \item Petal.Length
+        \item Petal.Width
+    \end{itemize}
+
+    For Principal Component Analysis (PCA), only the numerical variables are considered, resulting in four features.
+
+    (a) Covariance Matrix and Eigenvalues
+
+    Since the Iris dataset contains four numerical variables, the covariance matrix has the following dimensions:
+    \(\mathbf{C} \in \mathbb{R}^{4 \times 4}\).
+    
+
+    Therefore, the covariance matrix contains:
+    \(4 \cdot 4 = 16\)
+    entries.
+
+    A covariance matrix has exactly as many eigenvalues as its dimensionality. Consequently, the number of eigenvalues is: 4.
     \end{exercise}
 
     \begin{exercise}{PCA}
+        A dataset must fulfill several properties in order to be suitable for Principal Component Analysis (PCA):
+
+    \begin{itemize}
+        \item \textbf{Numerical features:}  
+        PCA is based on variance and covariance and therefore requires continuous numerical variables. Categorical variables must be encoded before applying PCA.
+
+        \item \textbf{Linear relationships:}  
+        PCA identifies linear combinations of the original features. It is effective only when the underlying structure of the data can be represented linearly.
+
+        \item \textbf{Proper feature scaling:}  
+        All features should be on comparable scales. Standardization (e.g.\ z-score normalization) is typically required to prevent features with large scales from dominating the principal components.
+
+        \item \textbf{Correlated variables:}  
+        PCA is most useful when features are correlated, as it reduces redundancy by combining correlated variables into principal components.
+
+        \item \textbf{Sufficient variance:}  
+        Since PCA maximizes variance, the dataset should contain meaningful variance. Features with very low variance contribute little to the analysis.
+    \end{itemize}
+
+    \textbf{When PCA Is Not Suitable for Dimensionality Reduction}
+
+    PCA is not an appropriate dimensionality reduction method in the following cases:
+
+    \begin{itemize}
+        \item \textbf{Non-linear data structures:}  
+        PCA cannot capture non-linear relationships or complex manifolds. In such cases, methods like t-SNE, UMAP, or Kernel PCA are more suitable.
+
+        \item \textbf{High demand for interpretability:}  
+        Principal components are linear combinations of original features and may be difficult to interpret semantically.
+
+        \item \textbf{Categorical or mixed-type data:}  
+        PCA is designed for numerical data and does not naturally handle categorical variables.
+
+        \item \textbf{Presence of strong outliers:}  
+        PCA is sensitive to outliers, which can significantly distort the variance and the resulting principal components.
+
+        \item \textbf{Low-dimensional datasets:}  
+        If a dataset already contains only a few features, PCA offers little benefit in terms of dimensionality reduction.
+    \end{itemize}
     \end{exercise}
     
     \begin{exercise}[PCA -- SKLEARN]
