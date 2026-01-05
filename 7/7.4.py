@@ -57,20 +57,29 @@ alt.Chart(df).mark_point().encode(
 ).save("pcad.pdf")
 
 
-components = PCA().fit(StandardScaler().fit_transform(numeric)).explained_variance_ratio_
+pca = PCA().fit(StandardScaler().fit_transform(numeric))
+components = pca.explained_variance_ratio_
 print(components)
 """components = pd.DataFrame({
     "x": list(range(1, len(components)+1))[::-1],
     "y": pd.Series(components[::-1]).cumsum()
 })"""
 
-components = pd.DataFrame({"y": components[::-1]})
+componentspd = pd.DataFrame({"y": components[::-1]})
 
 print(components)
-alt.Chart(components).mark_bar().encode(
+alt.Chart(componentspd).mark_bar().encode(
     x=alt.X("y:Q", title="Component percentage"),
     color=alt.Color("y:N", title=None).legend(format=".3f"),
     order=alt.Order("y", sort="descending")
 ).save("components.pdf")
 
 # Task f
+importances = pd.DataFrame(
+    pca.components_.T,
+    index=numeric.columns
+)
+
+print(importances)
+
+print(f"\nMost important:\n{importances.abs().sum(axis=1)}")

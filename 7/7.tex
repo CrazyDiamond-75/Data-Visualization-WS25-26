@@ -215,5 +215,9 @@
         From the graph in \autoref{fig:7.4c} it can be seen that cars in the dataset generally fall into one of three categories, one of which mostly consisting of american cars. Also (as could already be seen in the covariance chart) the majority of difference is along one axis.
 
         As can be seen in \autoref{fig:7.4e}, 2 components are sufficient to explain over 90\% of the dataset.
+
+        The Most important feature is the cylinders. The influence of a feature is encoded in the eigenvectors of the fit and can be accessed using \lstinline|pca_fit.components_|. We can take the influence a feature has on both of the principle components and construct an arrow, corresponding to it's influence (i.e. straigt up if only positive influence on component 1 and no influence on 2, north-east if equal influence on both 1 and 2 and so on) and color all these feature arrows differently to distinguish them.
+
+        In my opinion PCA revealed something about the dataset I previously didn't notice. In that sense it was worth exploring. Still I think for something I would submit or show someone, the findings could probably be conveyed way easier in a simple feature-feature graph by identifying the features that cause these three clusters to appear. That would be easier to explain to someone who has no prior knowledge in data science.
     \end{exercise}
 \end{document}
