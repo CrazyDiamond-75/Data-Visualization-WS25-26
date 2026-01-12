@@ -1,0 +1,23 @@
+\input{../preambula}
+\renewcommand{\ex}{8}
+\setcounter{section}{\ex}
+
+\begin{document}
+    \maketitle
+    
+    \setcounter{exercise}{1}
+    \begin{exercise}[Exploring t-SNE and UMAP Parameter Space]
+    In t-SNE, perplexity is a measure on the number of neighbours each point considers when building the probability distribution.
+    Consequently, setting a low perplexity focuses on local structure and builds smaller clusters.
+    A high perplexity generally results in bigger clusters and overall less deformation in comparison to the original dataset.
+    Therefore, size, shape, and distances between individual (sub-) clusters may not be important for the information extracted from a plot.
+    Additionally, the randomness induced by subsequent t-SNE runs may result in totally different plots with different takeaways.
+
+    In UMAP, \(n_\text{neighbours}\) is the number of nearest neighbours used to construct the local connectivity graph.
+    This again focuses on a trade-off between the importance of local and global neighbours.
+    In this way this parameter is similar to the t-SNE perplexity.
+    \(min_\text{dist}\) controls the minimal distance between points in the resulting distribution.
+    Therefore, both parameters control cluster size and distances.
+    Subsequently, the consequences on t-SNE can also be made with UMAP.
+    \end{exercise}
+\end{document}
