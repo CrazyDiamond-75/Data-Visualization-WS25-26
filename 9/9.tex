@@ -1,0 +1,49 @@
+\input{../preambula}
+\renewcommand{\ex}{9}
+\setcounter{section}{\ex}
+
+\renewcommand{\labelenumi}{\alph{enumi})}
+
+\usetikzlibrary{graphs}
+\usetikzlibrary{graphdrawing}
+\usegdlibrary{circular}
+
+\begin{document}
+    \maketitle
+    
+    \begin{exercise}[Network Visualization] \hfill
+        \begin{enumerate}
+            \item \hfill
+                \begin{center}
+                    \tikz \graph [simple necklace layout, node distance=3cm] {
+                        A -- B,
+                        A -- C,
+                        B -- C,
+                        B -- D,
+                        C -- E,
+                        D -- E
+                    };
+                \end{center}
+            \item A good criterion is minimized edge crossing---at best the graph has a planar embedding.
+                  In circular layout, we can permutate the ordering of the vertices to achieve minimized edge crossing.
+                  Additionally, the edges in the graph can be bend to improve on this even further.
+            \item We can bend some edges to the right and some edges to the left:
+                \begin{center}
+                    \tikz \graph [node distance=3cm] {
+                        A,
+                        B,
+                        C,
+                        D,
+                        E,
+                        A -- [bend left] B,
+                        A -- [bend right] C,
+                        B -- [bend left] C,
+                        B -- [bend right] D,
+                        C -- [bend left] E,
+                        D -- [bend right] E
+                    };
+                \end{center}
+            \item Edge bundling clusters similar edges together into shared paths to reduce visual clutter and reveal high-level connection patterns.
+        \end{enumerate}
+    \end{exercise}
+\end{document}
