@@ -46,4 +46,163 @@
             \item Edge bundling clusters similar edges together into shared paths to reduce visual clutter and reveal high-level connection patterns.
         \end{enumerate}
     \end{exercise}
+    \begin{exercise}
+    
+    \end{exercise}
+    \begin{exercise}[Hierarchical Data Visualization]
+        \subsection*{a) Used data, data encoding, strengths, and weaknesses}
+
+        \subsubsection*{1. Treemap}
+
+        Used data:
+        \begin{itemize}
+            \item Hierarchical (tree) data
+            \item Often with quantitative values on leaf nodes (e.g., size, revenue)
+        \end{itemize}
+
+        Data encoding:
+        \begin{itemize}
+            \item Containment: parent nodes contain children
+            \item Area of rectangles represents quantitative values
+            \item Color represents category or a secondary metric
+            \item Position has no semantic meaning
+        \end{itemize}
+
+        Strengths:
+        \begin{itemize}
+            \item Very space-efficient, uses the full available area
+            \item Well suited for comparing proportions across many categories
+            \item Scales well to large hierarchies
+        \end{itemize}
+
+        Weaknesses:
+        \begin{itemize}
+            \item Difficult to compare areas precisely, especially for similar sizes
+            \item Hierarchical structure (depth and order) is less clearly visible
+            \item Labels can become unreadable for small rectangles
+        \end{itemize}
+
+        \subsubsection*{2. Sunburst}
+
+        Used data:
+        \begin{itemize}
+            \item Hierarchical data with ordered levels
+            \item Can include quantitative values
+        \end{itemize}
+
+        Data encoding:
+        \begin{itemize}
+            \item Radial layout
+            \item Angle (arc length) represents quantitative values
+            \item Radius represents hierarchy depth
+            \item Color represents category or grouping
+        \end{itemize}
+
+        Strengths:
+        \begin{itemize}
+            \item Clearly shows hierarchical structure and depth
+            \item Intuitive representation of parent--child relationships
+            \item Visually appealing and suitable for storytelling
+        \end{itemize}
+
+        Weaknesses:
+        \begin{itemize}
+            \item Outer rings are harder to read and compare
+            \item Limited scalability for very deep or wide hierarchies
+            \item Area perception is weaker than with linear encodings
+        \end{itemize}
+
+        \subsubsection*{3. Icicle Plot}
+
+        Used data:
+        \begin{itemize}
+            \item Hierarchical data, often with quantitative values
+        \end{itemize}
+
+        Data encoding:
+        \begin{itemize}
+            \item Position along one axis represents the hierarchy structure
+            \item Length (width or height) represents quantitative values
+            \item Stacked layers represent hierarchy depth
+            \item Color represents category or an additional attribute
+        \end{itemize}
+
+        Strengths:
+        \begin{itemize}
+            \item Hierarchy is explicit and easy to read
+            \item Quantitative comparisons are easier than in sunburst diagrams
+            \item Well suited for interaction such as zooming and drill-down
+        \end{itemize}
+
+        Weaknesses:
+        \begin{itemize}
+            \item Less space-efficient than treemaps
+            \item Can become very wide or tall for large hierarchies
+            \item Less visually compact and attractive than radial layouts
+        \end{itemize}
+
+        \subsection*{b) Example datasets and best visualization tasks}
+
+        \subsubsection*{Treemap -- Example}
+
+        Dataset:
+        \begin{itemize}
+            \item Company budget: departments $\rightarrow$ teams $\rightarrow$ projects
+            \item Each project has an associated cost
+        \end{itemize}
+
+        Best visualization task:
+        \begin{itemize}
+            \item Identifying which departments and teams consume the most budget
+            \item Comparing relative proportions across many categories
+        \end{itemize}
+
+        Why Treemap?:
+        \begin{itemize}
+            \item Area encoding highlights dominant cost drivers
+            \item Efficient use of screen space for many nodes
+        \end{itemize}
+
+        \subsubsection*{Sunburst -- Example}
+
+        Dataset:
+        \begin{itemize}
+            \item File system: disk $\rightarrow$ folders $\rightarrow$ subfolders $\rightarrow$ files
+            \item File sizes as quantitative values
+        \end{itemize}
+
+        Best visualization task:
+        \begin{itemize}
+            \item Analyzing how disk usage is distributed across directory levels
+            \item Understanding hierarchical structure and depth
+        \end{itemize}
+
+        Why Sunburst?:
+        \begin{itemize}
+            \item Radial layers clearly represent directory depth
+            \item Parent--child relationships are visually intuitive
+        \end{itemize}
+
+        \subsubsection*{Icicle Plot -- Example}
+
+        Dataset:
+        \begin{itemize}
+            \item Website navigation paths
+            \item Homepage $\rightarrow$ category $\rightarrow$ subcategory $\rightarrow$ page
+            \item Page visit counts
+        \end{itemize}
+
+        Best visualization task:
+        \begin{itemize}
+            \item Identifying user navigation paths and drop-off points
+            \item Comparing flows across hierarchy levels
+        \end{itemize}
+
+        Why Icicle Plot?:
+        \begin{itemize}
+            \item Linear layout simplifies quantitative comparisons
+            \item Hierarchy depth and branching are immediately visible
+        \end{itemize}
+    \end{exercise}    
+
 \end{document}
