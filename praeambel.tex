@@ -1,0 +1,118 @@
+% DOCUMENT CLASS %
+\documentclass[a4paper, 12pt]{book}   % for A4 Paper, 12pt fontsize and book options
+\setcounter{tocdepth}{4}
+\setcounter{secnumdepth}{3}
+
+% PACKAGES%
+\usepackage{amsfonts}   % For a basic mathfont (many will be replaced by stix)
+\usepackage{amsmath}    % For basic math symbols
+\usepackage{bbm}        % For \mathbbm (better version of \mathbb)
+\usepackage{mathrsfs}   % For \mathscr
+\usepackage{hyperref}   % For footnotes
+\usepackage{csquotes}   % For \textquote{}
+\usepackage{IEEEtrantools}  % For better alignments
+\usepackage{tikz}   % For a macro
+\usepackage{listings} % For code
+\usepackage{xcolor}   % For ... code
+\usepackage[stretch=40]{microtype}
+
+\usepackage{enumitem}
+%\setlist[itemize]{noitemsep}
+
+\usepackage{fontspec}
+\usepackage{unicode-math}
+
+\usepackage[nohyperlinks,smaller]{acronym}
+
+% FONT CONFIGURATION %
+\setmainfont{Crimson Text}[
+  BoldFont={Crimson Text Bold},
+  %SmallCapsFont={HoeflerText -SmallCaps},
+  Ligatures={TeX,Common}
+]
+\setmathfont{Latin Modern Math}[Scale=MatchUppercase]%, FakeBold={2}]
+\setmonofont{Cascadia Code}[Scale=0.8, Contextuals=WordInitial, Ligatures=TeX]
+
+% SETS %
+\newcommand*{\R}{\mathbbm R}    % Set of real numbers
+\newcommand*{\N}{\mathbbm N}    % Set of natural numbers (beginning at 0)
+\newcommand*{\Z}{\mathbbm Z}    % Set of integers
+\newcommand*{\Q}{\mathbbm Q}    % Set of rational numbers
+
+% MACROS %
+\newcommand*{\QDp}{{:}\text{ }} % Macro for ": " so that when writing something like "\forall x:" there is not a seperation between the '\forall' and the ':'
+\newcommand*{\gap}{\text{ }}    % Macro for a lazy aligment 2
+\newcommand*{\qed}{\null\nobreak\hfill\ensuremath{\square}} % Macro for a QED-Box
+% for a funny ¯\_(ツ)_/¯-Emoji
+\newcommand{\shrug}[1][]{%
+    \begin{tikzpicture}[baseline,x=0.8\ht\strutbox,y=0.8\ht\strutbox,line width=0.125ex,#1]
+    \def\arm{(-2.5,0.95) to (-2,0.95) (-1.9,1) to (-1.5,0) (-1.35,0) to (-0.8,0)};
+    \draw \arm;
+    \draw[xscale=-1] \arm;
+    \def\headpart{(0.6,0) arc[start angle=-40, end angle=40,x radius=0.6,y radius=0.8]};
+    \draw \headpart;
+    \draw[xscale=-1] \headpart;
+    \def\eye{(-0.075,0.15) .. controls (0.02,0) .. (0.075,-0.15)};
+    \draw[shift={(-0.3,0.8)}] \eye;
+    \draw[shift={(0,0.85)}] \eye;
+    % draw mouth
+    \draw (-0.1,0.2) to [out=15,in=-100] (0.4,0.95); 
+    \end{tikzpicture}
+}
+\newcommand{\splitpage}[2]{
+    \begin{minipage}{0.5\textwidth}
+        #1
+    \end{minipage}
+        \hspace{0.5cm}
+    \begin{minipage}{0.5\textwidth}
+        #2
+    \end{minipage}
+}
+
+% BASIC CONFIGURATION %
+\pagestyle{plain}
+\allowdisplaybreaks
+
+
+\lstdefinestyle{pseudo}{
+    language=python,
+    basicstyle=\ttfamily\footnotesize,  % the size of the fonts that are used for the code
+    breakatwhitespace=false,            % sets if automatic breaks should only happen at whitespace
+    breaklines=true,                    % sets automatic line breaking
+    frame=leftline,
+    keepspaces=true,                    % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+    numbers=left,                       % where to put the line-numbers; possible values are (none, left, right)
+    firstnumber=1,
+    numbersep=5pt,                      % how far the line-numbers are from the code
+    showspaces=false,                   % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+    showstringspaces=false,             % underline spaces within strings only
+    showtabs=false,                     % show tabs within strings adding particular underscores
+    tabsize=2,                          % sets default tabsize to 4 spaces
+    commentstyle=\ttfamily\itshape,
+    emph={*, do, od, for, if, fi, then, else, to, def, in, forall, exists, while}, 
+    emphstyle={\sffamily\bfseries},
+    keywordstyle={\ttfamily\bfseries},   % emphasis style for the keywords,
+    texcl=true
+}
+
+\lstdefinestyle{bnf}{
+    basicstyle=\ttfamily\footnotesize,  % the size of the fonts that are used for the code
+    breakatwhitespace=false,            % sets if automatic breaks should only happen at whitespace
+    breaklines=true,                    % sets automatic line breaking
+    frame=leftline,
+    keepspaces=true,                    % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+    numbers=left,                       % where to put the line-numbers; possible values are (none, left, right)
+    firstnumber=0,
+    numbersep=5pt,                      % how far the line-numbers are from the code
+    showspaces=false,                   % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+    showstringspaces=false,             % underline spaces within strings only
+    showtabs=false,                     % show tabs within strings adding particular underscores
+    tabsize=2,                          % sets default tabsize to 4 spaces
+    commentstyle=\ttfamily\itshape,
+    emphstyle={\sffamily\bfseries},
+    keywordstyle={\ttfamily\bfseries},   % emphasis style for the keywords,
+    texcl=true
+}
+
+\lstset{style=bnf}
+
