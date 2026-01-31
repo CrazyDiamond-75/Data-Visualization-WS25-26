@@ -1,1 +1,63 @@
 \chapter{Perception}
+In this chapter we will look at important facts about human perception to consider when designing diagrams.
+An example that teaches this importance can be seen on \url{https://www.csc2.ncsu.edu/faculty/healey/PP/index.html#jscript_search}.
+
+\section{The Human Eye}
+Contrary to popular belief, the eye is not a perfect camera.
+Instead, it perceives limited colours at different angles \emph{differently}.
+Additionally, the brain also has to interpret this information and fill in missing gaps.
+A similar conclusion can be made from the \emph{Stroop effect}---where the difference between time needed recognizing meaning of colour and meaning of text delays understanding of colour.
+The distribution of cones on the retina makes outer angles appear less detailed then inner angles of the view field.
+
+The so-called \emph{ganglion cells} result in, what is called the \emph{Hermann grid effect}, in which extreme difference in contrast can introduce hallucination.
+But in general, these cells enables us perceive contrast and brightness difference between similar colours, when they are directly between each other.
+Through them, we notice edges in gradients.
+A takeaway from this effect is, that local contrast around edges can be used to make it easier to detect edges.
+This is because the human eye perceives \textbf{relative differences} and not absolute differences.
+
+\subsection{Weber's Law \& Fechner's Law}
+The quintessence of the last paragraph can be applied through Weber's and Fechner's laws.
+Weber's law states that for the notable perceived difference \(K\), stimulus \(S\), and stimulus difference \(dS\) we have \(K \sim \frac{dS}{S}\).
+Fechner's Law states that for the perceived brightness \(p\), base stimulus \(S_0\), and sudden current stimulus \(S\), we have \(p \sim \ln \frac{S}{S_0}\).
+
+\subsection{Three Stage Model}
+The three stage model divides the processing of visual information into three main phases.
+
+\begin{enumerate}
+    \item Rapid pre-attentive processing.
+        Goal: Extract low-level properties of a sight.
+    \item Pattern perception.
+        Goal: Recognizing objects and continuous contours.
+    \item Goal-directed processing.
+        Driven by attention and linguistic connections.
+\end{enumerate}
+
+\noindent
+In the first stage, the visual system focuses on the details that \emph{pop out}.
+Using pre-attentive features as e.g., marks, exploits this idea.
+Pre-attentive features can be: Angle, length, closure, size, curvature, density, count, colour hue, colour intensity, intersection, termination, 3d depth cue, lighting direction, flicker, motion direction, motion velocity.
+
+It has to be noted, that the overuse or random use of pre-attentive features can minder this effect, and make it even more complicated to highlight e.g., points.
+
+\begin{center}
+    \todo[inline]{TODO: Maybe fill in missing content}
+\end{center}
+
+\section{Gestalt Theory}
+In Gestalt theory, the law of \emph{Prägnanz} derives different laws based on how the mind groups shapes together to form objects.
+There are different laws based on this principle\footnote{To learn and differentiate between each law, I would recommend looking at the pictures in the slides and find external examples, e.g., \url{https://en.wikipedia.org/wiki/Principles_of_grouping}.}.
+
+\begin{description}
+    \item[Good Law of Prägnanz] Ambiguous and complex images are perceived simplified.
+    \item[Law of Proximity] Visually close things are related.
+    \item[Law of Similarity] Things that look alike are related.
+    \item[Law of Connection] Visually connected things are related.
+    \item[Law of Closure] Incomplete shapes are interpreted as complete.
+    \item[Law of Enclosure] Enclosed shapes are related.
+    \item[Law of Continuity] Hidden objects are interpreted as fitting simple shapes.
+    \item[Law of Symmetry] Symmetric things are related.
+    \item[Law of Past Experience] Shapes that form known pictures are related.
+    \item[Law of Figure and Ground] Elements are either perceived as figures or background.
+    \item[Law of Common Fate] Elements moving in the same direction are related.
+\end{description}
+
