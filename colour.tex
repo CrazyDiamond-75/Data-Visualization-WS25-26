@@ -1,0 +1,42 @@
+\chapter{Colour}
+As seen in the last "chapter", colour can be used as magnitude (value and saturation) and identity (hue) channels.
+When using colour for nominal or ordinal data, it is important to have a limited palette which either is noncontiguous or a finite gradient.
+
+For quantitative data using hue can go wrong, but may work.
+When doing so, using the rainbow is a bad practice.
+A smarter solution is to use sequential colormaps such as viridis, magma, or limit the gradient to two main hues.
+
+\section{Colour Palettes}
+There are different kinds of colour pallets to chose from.
+\begin{description}
+    \item[Categorical] Categorical colour palettes aim for maximum distinguishability between individual colours.
+
+    \item[Univariate] Univariate colour palettes are for ordinal or quantitative data.
+        They can be \emph{sequential}, \emph{diverging}, or \emph{cyclic}.
+        Sequential colour palettes change either hue, saturation, or value.
+        Diverging colour palettes change two dimensions of colour, one steadily increasing and one firstly increasing and then decreasing.
+        Cyclic colour palettes increase and then decrease at least one colour dimension.
+
+    \item[Bivariate] Bivariate colour palettes are univariate colour palettes which change at least two dimensions.
+        A bivariate colour palette can e.g., change hue and saturation.
+        Similarly to univariate colour palettes, bivariate colour palettes can also be sequential, diverging, or cyclic.
+
+    \item[Binary] Binary colour palettes are special bivariate colour palettes, where there are only two values for on of the two dimensions.
+\end{description}
+
+\noindent
+From these different kinds of palettes one must find the \emph{right} choice depending on the underlying data.
+
+\subsection{Colour Vision Deficiency}
+Colour vision deficiency (CVD) is the decreased ability to see colour or differences in colour, or distinguish shades of colour.
+Colour palettes should be designed in mind of CVD, when many people see a graph.
+Overall, at least 4.5\% of people of northern European decent have some kind of CVD.
+Safe colour palettes to use with CVD in mind are those which only use blue and orange or yellow.
+This maximises distinguishability for people with CVD.
+
+\subsection{Colour Spaces}
+There are different colour spaces to model colour perception.
+Red-Green-Blue (RGB) is useful for displays but very unuseful for information encoding.
+Instead often Hue-Saturation-Luminance (HSL) or Hue-Saturation-Value (HSV) is used to counteract this problem.
+Cyan-Magenta-Yellow-Key (CMYK) is used for printing.
+

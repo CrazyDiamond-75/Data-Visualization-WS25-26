@@ -1,0 +1,31 @@
+\chapter{Visual Encoding}
+Visual encoding is about how we visually abstract data to convey the most important informations to the human brain.
+This is formalized by defining \emph{marks} and \emph{channels}.
+
+
+\section{Marks and Channels}
+Marks are basic geometric elements that depict items or links.
+They can be e.g, points, lines, or areas.
+In contrast, channels, aka. dimensions or variables, control the appearance of marks.
+Channels can be \emph{identity channels} and \emph{magnitude channels}.
+Identity channels can be e.g., position, hue, or shape.
+Magnitude channels can be e.g., position, value, tilt, or size.
+Marks and channels are subjugated to different principles.
+
+\begin{description}
+    \item[Expressiveness Principle] The expressiveness principle states, that the visual encoding should express all of, and only, the information in the dataset attributes.
+        This principle dictates that categorical attributes should map to identity channels, and that the ordered attributes should map to magnitude channels.
+
+    \item[Effectiveness Principle] The effectiveness principle states that the importance of the attribute should match the salience of the channel---its noticeability.
+        The most important attributes should be encoded with the most effective channels.
+\end{description}
+
+\noindent
+Marks and channels together need the following component to form a visualization.
+
+\subsection{Charts}
+Charts are the \emph{recipe} of a graph.
+It tells how to use channels and marks to visualize data.
+Different chart types offer different ways to represent the same data.
+When choosing channels in a chart, one can choose integral channels to highlight similarity or separable channels to highlight differences.
+It is vitally important to be careful when doing this, as using them both may make a graph very hard to read.
