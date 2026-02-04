@@ -1,0 +1,42 @@
+\chapter{Design}
+Design is the backbone of a visualisation---it communicates how the chart uses (which) marks and channels to communicate the information.
+Good design may be aesthetic, useful, honest, and minimal\footnote{No, I don't want to list \emph{all} of Dieter Rams \emph{Principles of Good Design}}.
+
+Choosing a design can be a tough iterative process, that cycles between data-near analysis (what does this graph require?), and improvement (how can I make this graph look better?).
+The goal of this chapter is to formalize a critique of visualisation design.
+Edward Tufte defines two main goals for designs.
+
+\begin{enumerate}
+    \item Practice: Graphical Integrity
+    \item Theory: Graphical Excellence
+\end{enumerate}
+
+\section[Graphical Integrity]{Graphical Integrity \\ {\large Visual Representations of Data Must Tell the Truth}}
+There are different ways to lie in a graph, one may offset a scale or omit it completely from the graph.
+One can also cleverly remove some data from the dataset to change the meaning of the chart.
+
+To see through some of these distortions, Tufte developed the \emph{lie factor}---a metric which compares the size of effect in the graph with the size of effect in the data.
+It is calculated in the following way---where \(S_\text{graph}\) is calculated by dividing the difference between minimal and maximal size in the graph by the minimal size.\footnote{It is important, that the \emph{size} in a graph is relative to the way the data is represented---is it length, area, volume, or something entirely else?}
+\(S_\text{data}\) is analogously calculated with minimum and maximum of the data mapped to the graph.
+\[\text{LF} := \frac{S_\text{graph}}{S_\text{data}}\]
+
+\section{Graphical Excellence}
+Tufte invented a method on how to achieve graphical excellence based on certain design principles.
+\begin{description}
+    \item[Show Data] Above all else, show the data.
+
+    \item[Prioritise Data Ink] Maximize the share of data ink\footnote{Ink used to display data} within reason.
+        \emph{Within reason} because removing e.g., axis labels obfuscates the graph.
+        The \emph{data ink ratio} is calculated by dividing the amount of data ink by the total amount of ink in the graph.
+        Ideally and naively 0.
+
+    \item[Avoid Chartjunk] Remove unnecessary visual elements in charts that distract the viewer from the information.
+
+    \item[Erase Redundant Data Ink] If some data ink is used multiple times for the same information, remove the duplicates.
+
+    \item[Revise and Edit] Again, having an iterative design process is important for good design.
+
+    \item[Maximize Data Density] Try to display a lot of data in a small area.
+        The data density of a graphic is calculated by dividing the number of data entries displayed by the area of the graphic.
+        A good strategy is to display multiple visually similar small graphs near each other.
+\end{description}
