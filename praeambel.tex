@@ -15,18 +15,18 @@
 \usepackage{listings} % For code
 \usepackage{xcolor}   % For ... code
 \usepackage[stretch=40]{microtype}
-
 \usepackage{enumitem}
-%\setlist[itemize]{noitemsep}
 \usepackage[color=red]{todonotes}
 
-
-\usepackage{fontspec}
-\usepackage{unicode-math}
-
+% If needed
 \usepackage[nohyperlinks,smaller]{acronym}
 
 % FONT CONFIGURATION %
+% OLD %
+\iffalse
+\usepackage{fontspec}
+\usepackage{unicode-math}
+
 \setmainfont{Crimson Text}[
   BoldFont={Crimson Text Bold},
   %SmallCapsFont={HoeflerText -SmallCaps},
@@ -34,6 +34,15 @@
 ]
 \setmathfont{Latin Modern Math}[Scale=MatchUppercase]%, FakeBold={2}]
 \setmonofont{Cascadia Code}[Scale=0.8, Contextuals=WordInitial, Ligatures=TeX]
+\fi
+\else
+\usepackage{crimson}
+\usepackage{lm-math}
+\usepackage{cascadia-code}
+\fi
+
+% MAKE DESCRIPTION ENVIRONMENTS HAVE ITALICIZED ITEMS %
+\renewcommand{\descriptionlabel}[1]{\hspace{\labelsep}\textit{#1}}
 
 % SETS %
 \newcommand*{\R}{\mathbbm R}    % Set of real numbers
