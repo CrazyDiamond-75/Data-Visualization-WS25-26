@@ -1,3 +1,61 @@
 \chapter{Tabular Data}
 This chapter focuses on tabular data and which chart idioms to use when plotting it.
+As already mentioned, tabular items are identified by one or more keys and contain a vector of values specified by the attributes.
+Tabular items may also have no key, which is similar to sampled values.
 
+\section{Common Idioms for Tabular Data}
+Common idioms used for tabular data include the following.
+\begin{description}
+    \item[Scatterplot] A scatterplot expresses quantitative attributes.
+        Channels, in this case horizontal and vertical position, are linked to the attributes.
+        The mark used is commonly a point.
+        Scatterplots can be used to visually express and find correlation (or lack thereof), clusters, outliers, or distribution.
+        A scatterplot can be even more expressive by encoding additional attributes in other channels, such as colour, size, and shape.
+
+    \item[Bar chart] The bar chart can be used to express keyed items with commonly one quantitative attribute.
+        The mark can be a line, while the channel is commonly the length of the line.
+        The key can be ordered alphabetically or by attribute value.
+        Bar charts can be used to compare values between keys.
+    
+    \item[Stacked Bar Chart] A stacked bar chart is a variation of the bar chart, where an additional key is used to express different portions of the value plotted, e.g., consumption of food (key) by country (key).
+        The additional categorical channel to differentiate between keys often is colour.
+
+    \item[Streamgraph] A streamgraph is a generalized stacked graph, where horizontal continuity is emphasized.
+        One key is still channelled vertically while the other one may be continuous or a quantitative attribute.
+    
+    \item[Dot/Line Chart] The dot and line charts are a form of a bar chart, where the marks are connected points.
+        This can be practical, when the horizontal key is quantitative or when there is a relation between nearby keys.
+    
+    \item[Indexed Line Chart] Indexed line charts are line charts with another key similar to stacked bar charts.
+        This key is commonly encoded with colour as another line in the graph which does not have to be stacked on top.
+
+    \item[Gantt Chart] A Gantt chart uses lines as marks which are channelled by their horizontal length to express a duration.
+        The horizontal attribute commonly is time but can be any continuous attribute.
+        One key can be used to differentiate between different \emph{tasks} by stacking them vertically.
+
+    \item[Slopegraph] A slopegraph uses two quantitative attributes, but only samples two points on the horizontal (often time) attribute.
+        Each left and right sample is marked using points which are connected.
+        The vertical attribute is associated with the key and shown on the left and right size of the two points.
+        The change of the vertical attribute (positive or negative) is often also channelled using colour or/and size.
+
+    \item[Parallel Coordinates] parallel coordinate charts are slopegraphs with more than two points.
+
+    \item[Heatmap] For tables with two keys (can be continuous, e.g., space) and one quantitative attribute, heatmaps display values in a 2D matrix which is indexed by the two keys.
+        Colour is used to channel the values.
+        Heatmaps can be used to find clusters and outliers.
+
+    \item[Cluster Heatmap] A cluster heatmap is a heatmap, where the keys are ordered by identified clusters.
+
+    \item[Radial Bar Chart, Star Plot] Radial bar charts and star plots are radial bar charts.
+
+    \item[Radar Plot] A radar plot is a radial line chart.
+        Should be avoided unless the categorical or quantitative key is radial.
+
+    \item[Pie Chart, Coxcomb Chart] Pie charts and coxcomb charts divide the area of a circle into different regions based on a categorical key.
+        The size of each area is linked to the quantitative attribute to map.
+        Similar to stacked bar charts, these charts can also be stacked to channel even another key.
+        Small differences can be recognized easier when using coxcomb charts rather than pie charts.
+
+    \item[Normalized Stacked Bar Chart] this chart is a stacked bar chart, where the ratio of the second key is displayed by normalizing each stacked value to full vertical height.
+        Each line is equivalent to one entire pie chart.
+\end{description}
