@@ -59,3 +59,78 @@ Common idioms used for tabular data include the following.
     \item[Normalized Stacked Bar Chart] this chart is a stacked bar chart, where the ratio of the second key is displayed by normalizing each stacked value to full vertical height.
         Each line is equivalent to one entire pie chart.
 \end{description}
+
+\section{Dimensionality Reduction}
+A lot of more complex datasets can have too many dimensions to make them visually understandable by directly visualizing them.
+The goal of this section is to present different techniques, which reduce the dimensionality of the data set while keeping vital information.
+
+\subsection{Principle Component Analysis}
+Principle component analysis (PCA) is a dimensionality reduction techniques, which maps a set of \(n \in \N\)-dimensional points to a space with \(k < n\) dimensions, by eliminating \emph{less variant} dimensions.
+We first have to go through some definitions.
+
+\newcommand{\Var}{\text{Var}}
+\newcommand{\Cov}{\text{Cov}}
+
+\begin{definition}[Variance and Covariance]
+    For some vector \(x \in \R^n\), we define the variance of the vector as the average square distance to the mean.
+
+    \[\Var(x) := \frac{1}{n}\sum_{i \in [n]} (x_i - \overline x)^2\]
+
+    \noindent
+    The variance of some dataset is broadly the measure of how spread-out it is.
+    The covariance is a similar measure, which instead looks at two vectors \(x, y \in \R^n\), and declares, component-wise which dimensions of both vectors tend to change dependant on each other.
+
+    \[\Cov(x, y) := \frac{1}{n}\sum_{i \in [n]} (x_i - \overline x) \cdot (y_i - \overline y)\]
+
+    \noindent
+    We have \(\Var(x) = \Cov(x,x)\).
+    Correlation is a similar measure as it is the covariance divided by the product of standard deviations.
+\end{definition}
+
+\begin{definition}[Eigenvectors and Eigenvalues]\label{def:eigen}
+    Eigenvectors and eigenvalues of some symmetric real matrix \(A \in \R^{n \times n}\) are vectors \(v\) and scalars \(\lambda\), which express \(A v = \lambda v\).
+    In other words, an eigenvector \(v\) only changes scale by \(\lambda\), but not direction when it is transformed using \(A\).
+
+    Eigenvalues of \(A\) are found by solving for the roots of the characteristic polynomial.
+    I.e., find \(\lambda\) such that \[0 = \det(A - \lambda I_n),\]
+    
+    \noindent
+    where \(I_n\) is the identity matrix with dimension \(n\).
+    Eigenvectors of \(A\) are then found by solving the following linear equation system for \(v \in \R^n\).
+
+    \[(0)^n = (A - \lambda I_d) \times v\]
+
+    \noindent
+    For symmetrical matrices, all eigenvectors should be orthogonal to each other.
+\end{definition}
+
+\subsection{PCA Algorithm}
+For some matrix \(X \in \R^{d \times n}\) which contains points of dimension \(d\) in \textbf{row-wise} order, we perform PCA the following way.
+\begin{enumerate}
+    \item Center\footnote{General standardization is optional.} each point in \(X\) by the mean dimensional value.
+
+    \item Calculate the covariance matrix the centered \(X\).
+        This can be done by filling each entry of a matrix \(\in \R^{d \times d}\) according to the covariance formula.
+        Alternatively, we can just calculate \(X^TX\), as this matrix product is a product of the covariance matrix with some scalar.
+
+    \item Find the eigenvalues and eigenvectors of this covariance matrix according to \cref{def:eigen}.
+
+    \item Order the eigenvectors by absolute value of the corresponding eigenvalue in decreasing order.
+        The first/second/... vector is now the first/second/... principal component of \(X\).
+
+    \item Pick the first \(k < n\) principal components of \(X\) and put them \textbf{collumn-wise} in a matrix \(V \in \R^{k \times d}\).
+        Each vector can also be normalized, but this is not necessary to reduce the space.
+
+    \item Project \(X\) to the \(k\)-dimensional subspace by multiplying \(X \times V\).
+\end{enumerate}
+
+\begin{center}
+    \todo[color=white, inline]{Note: I ommited the closely-related subject of singular value decomposition (SVD), because the calculation of it is probably too complex for the exam.
+    Just know, that it does something else (decompose a matrix) but in a similar way.}
+\end{center}
+
+\subsection{Other Dimensionality Reduction Techniques}
+\begin{description}
+    \item[Independent Component Analysis] ICA is a computational method for separating a multivariate signal into additive subcomponents. This is done by assuming that at most one subcomponent is Gaussian and that the subcomponents are statistically independent from each other.
+\end{description}
+
