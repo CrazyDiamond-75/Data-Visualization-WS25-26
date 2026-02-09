@@ -129,8 +129,28 @@ For some matrix \(X \in \R^{d \times n}\) which contains points of dimension \(d
     Just know, that it does something else (decompose a matrix) but in a similar way.}
 \end{center}
 
-\subsection{Other Dimensionality Reduction Techniques}
+\subsection{Other Linear Dimensionality Reduction Techniques}
 \begin{description}
-    \item[Independent Component Analysis] ICA is a computational method for separating a multivariate signal into additive subcomponents. This is done by assuming that at most one subcomponent is Gaussian and that the subcomponents are statistically independent from each other.
+    \item[Independent Component Analysis (ICA)] ICA is a computational method for separating a multivariate signal into additive subcomponents. This is done by assuming that at most one subcomponent is Gaussian and that the subcomponents are statistically independent from each other.
+
+    \item[Linear Discriminant Analysis (LDA)] LDA is a method to find a linear transformation of a multi-classed dataset, which separates each class in the best way.
+        It finds the directions which maximize separation between classes and projects the data set according to these directions.
 \end{description}
 
+\section{T-Distributed Stochastic Neighbour Embedding}
+T-Distributed Stochastic Neighbour Embedding (t-SNE) is a statistical method for visualizing high-dimensional data by giving each point a location in 2D or 3D space.
+
+The t-SNE algorithm comprises two main stages.
+First, t-SNE constructs a probability distribution over pairs of high-dimensional objects in such a way that similar objects are assigned a higher probability while dissimilar points are assigned a lower probability.
+Second, t-SNE defines a similar probability distribution over the points in the low-dimensional map, and it minimizes the Kullback–Leibler divergence\footnote{\url{https://en.wikipedia.org/wiki/Kullback\%E2\%80\%93Leibler_divergence}} between the two distributions with respect to the locations of the points in the map.
+
+Besides iteration count and learning rate, t-SNE uses another parameter, the \emph{perplexity} \(\sigma\)---a hand-chosen parameter of t-SNE.
+As the authors state, "perplexity can be interpreted as a smooth measure of the effective number of neighbours [used for each point].
+The performance of SNE is fairly robust to changes in the perplexity, and typical values are between 5 and 50.".
+
+T-SNE is really useful when you know how to interpret it and how to set the parameters in a meaningful way.
+To use and interpret t-SNE effectively, choose the right perplexity, ignore the size of clusters and distances between them, differentiate between random noise and real meaning, and generate multiple plots.
+
+\section{Uniform Manifold Approximation and Projection for Dimension Reduction}
+Uniform Manifold Approximation and Projection for Dimension Reduction (UMAP) is a similar method as t-SNE, with the main difference being the inclusion of another parameter, \emph{minimum distance}, which is the minimum distance between points in low-dimensional space.
+Instead of perplexity, the similar parameter is called \emph{number of neighbours}, which is the number of approximate nearest neighbours used to construct an initial high-dimensional graph.
