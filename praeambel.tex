@@ -22,29 +22,20 @@
 \usepackage[nohyperlinks,smaller]{acronym}
 
 % FONT CONFIGURATION %
-% OLD %
-\iffalse
+\usepackage{crimson}
 \usepackage{fontspec}
-\usepackage{unicode-math}
+\setmonofont{Cascadia Code}[Scale=0.8, Contextuals=WordInitial, Ligatures=TeX]
+% Maybe just use the default math font...
 
+\iffalse
 \setmainfont{Crimson Text}[
   BoldFont={Crimson Text Bold},
   %SmallCapsFont={HoeflerText -SmallCaps},
   Ligatures={TeX,Common}
 ]
-\setmathfont{Latin Modern Math}[Scale=MatchUppercase]
-\setmonofont{Cascadia Code}[Scale=0.8, Contextuals=WordInitial, Ligatures=TeX]
 \fi
-
-% NEW %
-\usepackage{crimson}
-
-% Maybe just use the default math font...
-%\usepackage{fontspec}
 %\usepackage{unicode-math}
-%\setmathfont{Latin Modern Math}
-
-\usepackage{cascadia-code}
+%\setmathfont{Latin Modern Math}[Scale=MatchUppercase]
 
 % Definition environments
 \usepackage{amsthm}
