@@ -1,0 +1,22 @@
+\chapter{Uncertainty}
+In this chapter, the visualization of random variables and statistical data is discussed.
+Uncertain data is variant data.
+Uncertainty has to be visualized appropriately.
+The problem is, that many completely different data sources can have similar or identical plots of them.
+Therefore, identifying correlation between variables can not always be done by just comparing boxplots or directly plotting the data.
+The takeaway is, that the importance lies in visualizing mathematical confidence, not intuitive confidence.
+
+Visualization can again be done using certain chart idioms.
+\begin{description}
+    \item[Boxplot] The boxplot visualizes a variant data source, by dividing the vertical part of the plot into different segments.
+        Outliers are marked as dots an channeled using the appropriate quantitative value.
+        Then the minimum is displayed as a horizontal line, which is connected by a vertical line to the 25th percentile.
+        The 25th percentile starts a rectangle which has another horizontal line inside of it, which is the median.
+        The rectangle ends with the 75th percentile, which is connected by a vertical line with the maximum.
+        The 25th and 75th percentiles are calculated, by splitting the dataset in two according to the mean value of the whole set and calculating the lower and higher mean values.
+
+    \item[Gradient and Violin Plot] Gradient and violin plots are plots which encode the cumulative density of the area containing all values between minimum and maximum by transparency or width.
+        For small datasets, these plots may confuse the reader and hallucinate meaning.
+\end{description}
+
+For bivariate data or temporal data, similar charts can be used.
