@@ -1,0 +1,44 @@
+\chapter{Networks}
+This chapter is about visualizing the network type of data.
+This includes graphs and trees.
+Common (visual) tasks on networks include topology based (finding properties of the graph structure), attribute based (finding specific nodes based on attribute values), browsing (finding paths between nodes), and estimation (temporal) tasks.
+
+Most graphs can be drawn (embedded) in multiple ways, therefore we need to define some criteria for good layouts.
+
+\begin{enumerate}
+    \item Minimize edge crossings and node overlap, distances between neighbouring nodes, drawing area, and edge bends.
+    \item Maximize angular distances between edges, aspect ratio disparities, and symmetry.
+\end{enumerate}
+
+In many graphs these ideals contradict each other and introduce NP-hardness, therefore good layout is an optimization problem, which combines the different criteria into a weighted cost function.
+Multiple graph layouting idioms try to solve this problem.
+
+\begin{description}
+    \item[Force-Directed Placement] This algorithm iteratively pushes separate nodes apart from each other and pulls connected nodes together.
+        This works well for small graphs or graphs where \(|E| < 4|V|\).
+
+    \item[Circular Layouts and Arc Diagrams] In this layout, each nodes is positioned on a circle or line with bent edges.
+        Nodes are ordered barycentric to minimize edge crossings.
+
+    \item[Adjacency Matrix View] To visualize a network, we can also derive an adjacency matrix and visualize this table.
+        The resulting heatmap can again be clustered again by reordering the nodes.
+
+    \item[Hierarchical Edge Bundling] This is a step to do on any layout, which clusters edges with nearby source and destination nodes.
+\end{description}
+
+\section{Trees}
+There are also visualization idioms specific to trees.
+\begin{description}
+    \item[Indentation] Place all items along vertically spaced rows.
+        Use indentation to show parent/child relationship.
+        All siblings and cousins of any degree are on the same indent.
+
+    \item[Radial Node-Link Tree] A radial node-link tree is an embedding of a tree, where the root node is placed in the center and all nodes on the same level are placed on circles with the center as midpoint.
+        Children branch off in increased distance to the center.
+
+    \item[Treemap] A treemap is an embedding where each node is composed of some quantitative value and key, where the value of some parent is the sum of child values.
+        The quantitative value of each nodes results in the rectangular area of the node embedding.
+        Children are placed in the area of the parent.
+
+    \item[Sunburst] A sunburst chart is a hierarchical version of the pie chart.
+\end{description}
