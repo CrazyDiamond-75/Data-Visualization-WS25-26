@@ -1,2 +1,76 @@
 \chapter{Altair Guide}
 A good guide on how to use Altair to visualize Pandas \lstinline|DataFrame| objects, can be found on \url{https://altair-viz.github.io/user_guide/data.html}.
+
+Another great guide is found on \url{https://www.geeksforgeeks.org/python/introduction-to-altair-in-python/}.
+
+\section{"My" Guide on Altair}
+In Altair, we can plot Pandas \lstinline|DataFrame| objects with \lstinline|$plt$ = altair.Chart($D$).mark_$m$().encode($ch_1$=$co_1$, ...)|---where \(D\) is a \lstinline|DataFrame|, \(m\) is a mark, and \lstinline|$ch_1$=$co_1$| specifies which channels are expressing which attribute or column of the table.
+
+Marks are specified with the methods listed in \autoref{tab:1}.
+Possible channels are the parameters of the \lstinline|encode| method listed in \autoref{tab:2}.
+We can also hint which data type \(T\) a column \(co\) has by passing \lstinline|$co$:$T$| to some channel.
+\(T\) can be a value of \autoref{tab:3}.
+Type hinting may be necessary because Altair needs to know how to interpret the data and determine e.g., scales from that.
+To combine and layer two generated charts, we can just write \lstinline|$plt_1$ + $plt_2$|.
+
+\begin{table}[t]
+    \centering
+    \begin{tabular}{lll}
+        \hline
+        \textbf{Mark} & \textbf{Method} & \textbf{Description} \\
+        \hline
+        Point   & \texttt{.mark\_point()}   & Scatter plot points \\
+        Circle  & \texttt{.mark\_circle()}  & Like point but size-scaled \\
+        Line    & \texttt{.mark\_line()}    & Line chart \\
+        Bar     & \texttt{.mark\_bar()}     & Bar chart \\
+        Area    & \texttt{.mark\_area()}    & Area chart \\
+        Tick    & \texttt{.mark\_tick()}    & Small tick marks \\
+        Rect    & \texttt{.mark\_rect()}    & Heatmaps \\
+        Rule    & \texttt{.mark\_rule()}    & Reference lines \\
+        Text    & \texttt{.mark\_text()}    & Labels \\
+        Square  & \texttt{.mark\_square()}  & Square markers \\
+        \hline
+    \end{tabular}
+    \caption{Marks their methods in Altair.}
+    \label{tab:1}
+\end{table}
+
+\begin{table}[t]
+    \centering
+    \begin{tabular}{ll}
+        \hline
+        \textbf{Channel} & \textbf{Description} \\
+        \hline
+        \texttt{x}        & Horizontal position \\
+        \texttt{y}        & Vertical position \\
+        \texttt{color}    & Color of mark \\
+        \texttt{size}     & Size of mark \\
+        \texttt{shape}    & Shape of mark \\
+        \texttt{opacity}  & Transparency \\
+        \texttt{tooltip}  & Hover information \\
+        \texttt{row}      & Facet by rows \\
+        \texttt{column}   & Facet by columns \\
+        \texttt{detail}   & Additional grouping \\
+        \texttt{order}    & Drawing order \\
+        \texttt{text}     & Text labels \\
+        \hline
+    \end{tabular}
+    \caption{Channels in Altair.}
+    \label{tab:2}
+\end{table}
+
+\begin{table}[t]
+    \centering
+    \begin{tabular}{ll}
+        \hline
+        \textbf{Type} & \textbf{Description} \\
+        \hline
+        \texttt{Q} & Quantitative \\
+        \texttt{N} & Nominal \\
+        \texttt{O} & Ordinal \\
+        \texttt{T} & Temporal \\
+        \hline
+    \end{tabular}
+    \caption{Possible typehints for columns in Altair.}
+    \label{tab:3}
+\end{table}
