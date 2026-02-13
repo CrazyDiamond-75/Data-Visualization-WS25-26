@@ -109,7 +109,7 @@ For some matrix \(X \in \R^{d \times n}\) which contains points of dimension \(d
 \begin{enumerate}
     \item Center\footnote{General standardization is optional.} each point in \(X\) by the mean dimensional value.
 
-    \item Calculate the covariance matrix the centered \(X\).
+    \item Calculate the covariance matrix of the centered \(X\).
         This can be done by filling each entry of a matrix \(\in \R^{d \times d}\) according to the covariance formula.
         Alternatively, we can just calculate \(X^TX\), as this matrix product is a product of the covariance matrix with some scalar.
 
@@ -121,7 +121,7 @@ For some matrix \(X \in \R^{d \times n}\) which contains points of dimension \(d
     \item Pick the first \(k < n\) principal components of \(X\) and put them \textbf{collumn-wise} in a matrix \(V \in \R^{k \times d}\).
         Each vector can also be normalized, but this is not necessary to reduce the space.
 
-    \item Project \(X\) to the \(k\)-dimensional subspace by multiplying \(X \times V\).
+    \item Project pre-centered/normalized \(X\) to the \(k\)-dimensional subspace by multiplying \(X \times V\).
 \end{enumerate}
 
 \begin{center}
